@@ -19,7 +19,7 @@ public class LegBehavior_2 : Lamb {
 
 
 	void Start(){
-		maxYPiston = -2.0f;
+		maxYPiston = 2.0f;
 		player = GameObject.Find("Player");
 	}
 
@@ -33,17 +33,17 @@ public class LegBehavior_2 : Lamb {
 
 		if(Input.GetKey(KeyCode.Space)){
 
-			if(piston.transform.localPosition.y > maxYPiston){
+			if(piston.transform.localPosition.y < maxYPiston){
 
-				piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y - Time.deltaTime * speedExtend, piston.transform.localPosition.z);
+				piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y + Time.deltaTime * speedExtend, piston.transform.localPosition.z);
 				if(IsOnFloor && coolDown <= 0){
 					coolDown = 0.1f;
 					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 800));
 				}
 			} 
 		}
-		else if(piston.transform.localPosition.y < -0.1f){
-			piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y + Time.deltaTime * speedRetract, piston.transform.localPosition.z);
+		else if(piston.transform.localPosition.y > 0.1f){
+			piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y - Time.deltaTime * speedRetract, piston.transform.localPosition.z);
 		}
 	}
 }

@@ -75,12 +75,19 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
         }
     }
 
-    public void DropObject(Transform ObjectTransform)
+    public void DropObject(Transform pivotTransform)
     {
+        if (pivotTransform.childCount > 0)
+            return;
+            
         AnObjectIsSelected = false;
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-        _LambsManager.AttachLamb(SelectedObject, ObjectTransform);
-        ;
+        SelectedObject.GetComponent<PivotTrigger>().isAttached = true;
+        
+        if ( SelectedObject.GetComponent<PivotTrigger>().disableColliderOnDrop )
+            SelectedObject.GetComponent<Collider>().enabled = false;
+
+        _LambsManager.AttachLamb(SelectedObject, pivotTransform);
     }
 
   
