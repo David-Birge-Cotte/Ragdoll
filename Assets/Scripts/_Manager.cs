@@ -6,13 +6,15 @@ public class _Manager : MonoBehaviour {
 
 	public int Score;	
 	public Text ScoreUI;
-	private GameObject[] listeCollectibles;
+	GameObject[] listeCollectibles;
 
-	private GameObject player;
+	GameObject player;
+	Vector3 initialPlayerPos;
 
 
 	void Start(){
 		player = GameObject.Find("Player");
+		initialPlayerPos = player.transform.position;
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
 	}
 
@@ -27,6 +29,7 @@ public class _Manager : MonoBehaviour {
 	public void restartLevel()
 	{
 		Debug.Log("Restart level");
+		player.transform.position = initialPlayerPos;
 		Application.LoadLevel(Application.loadedLevel);
 	}
 }

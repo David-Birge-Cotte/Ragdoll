@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 120570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b76bc933e8f2844db89fc6332f404a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c4977f8ff51ce4aa3a1b11ebd79ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   disableColliderOnDrop: 0
