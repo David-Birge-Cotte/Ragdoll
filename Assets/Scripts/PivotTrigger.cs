@@ -4,6 +4,9 @@ using System.Collections;
 public class PivotTrigger : MonoBehaviour {
 
     GameObject UIManager;
+    public bool disableColliderOnDrop = false;
+
+    [HideInInspector] public bool isAttached = false;
 	// Use this for initialization
 	void Start () 
     {
@@ -11,17 +14,20 @@ public class PivotTrigger : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 	
 	}
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
+        if (isAttached)
+        {
+            return;
+        }
         if (col.tag == "Pivot")
         {
             UIManager.GetComponent<Parts_GUI_Manager_Script>().DropObject(col.transform);
-            this.enabled = false;
         }
     }
 }

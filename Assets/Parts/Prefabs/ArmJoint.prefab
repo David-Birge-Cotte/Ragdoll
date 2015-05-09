@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e19897fc40c2c24db4371de9f8c30fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableColliderOnDrop: 0
+  isAttached: 0
 --- !u!212 &21214052
 SpriteRenderer:
   m_ObjectHideFlags: 1
