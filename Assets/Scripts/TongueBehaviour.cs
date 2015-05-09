@@ -4,39 +4,43 @@ using System.Collections.Generic;
 
 public class TongueBehaviour : MonoBehaviour {
 
-	//public GameObject poids;
+	public GameObject head, cou;
+	public Sprite[] mouths;
 
 	bool throwed, collided;
 
-	int counter = 0;
 	float distance;
 
 	RaycastHit2D hit;
 
 	void Update ()
 	{
-		Debug.DrawRay( transform.position, transform.right );
+		Debug.DrawRay( transform.position, transform.up );
 
 		if( Input.GetKeyDown(KeyCode.Z) )
 		{
 			if( !throwed )
 			{
-				hit = Physics2D.Raycast( transform.position, transform.right );
-				if( hit.collider != null && hit.collider.tag == "platform" )
-				{
-					/*GetComponent<SliderJoint2D>().connectedAnchor = (Vector2)hit.point;
-					GetComponent<SliderJoint2D>().enabled = true;*/
-					throwed = true;
-					Debug.Log("begin");
-				}
+				throwed = true;
+				head.GetComponent<SpriteRenderer>().sprite = mouths[1];
+				Debug.Log("begin");
 			}
 		}
 		else if( Input.GetKeyUp(KeyCode.Z) )
 		{
 			if( throwed && !collided )
 			{
+				head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 				collided = true;
 				Debug.Log("collided");
+			}
+			else if( !throwed )
+			{
+				GetComponent<HingeJoint2D>().enabled = false;
+				throwed = false;
+				collided = false;
+				hit = new RaycastHit2D();
+				Debug.Log("end");
 			}
 		}
 
@@ -44,58 +48,63 @@ public class TongueBehaviour : MonoBehaviour {
 		{
 			if( !collided )
 			{
-				hit = Physics2D.Raycast( transform.position, transform.right );
+				head.transform.localPosition += new Vector3(0,0.5f);
+				cou.transform.localPosition += new Vector3(0,0.25f);
+				cou.transform.localScale += new Vector3(0,0.4f);
+
+				hit = Physics2D.Raycast( transform.position, transform.up );
 				if( hit.collider != null && hit.collider.tag == "platform" )
 				{
-					distance = Vector3.Distance( transform.position, hit.point );
-
-					if( distance < 0.2f )
-						return;
-					
-					if( counter/20 < distance && counter < 40 )
+					distance = Vector3.Distance( transform.position, hit.point )/0.3f;
+					//Debug.Log( distance);
+					if( distance > 10 )
 					{
-						counter += 2;
-						transform.localScale += new Vector3(0.1f,0);
-					}
-					else
-					{
+						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
+						Debug.Log("collided");
+					}
+					else if( head.transform.localPosition.y > distance/0.3f )
+					{
+						GetComponent<HingeJoint2D>().anchor = new Vector2(0,distance)/0.3f;
+						GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
+						GetComponent<HingeJoint2D>().enabled = true;
 
-						if( counter < 40 )
-						{
-							GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
-							GetComponent<HingeJoint2D>().enabled = true;
-							//GetComponent<SliderJoint2D>().enabled = false;
-						}
+						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
+						collided = true;
 						Debug.Log("collided");
 					}
 				}
-				else
+				else if( head.transform.localPosition.y > 20 )
+				{
+					head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 					collided = true;
+					Debug.Log("collided");
+				}
 			}
 			else
 			{
-				if( counter > 0 )
+				if( head.transform.localPosition.y > 2.3f )
 				{
-					counter--;
-					transform.localScale -= new Vector3(0.05f,0);
+					head.transform.localPosition -= new Vector3(0,0.5f);
+					cou.transform.localPosition -= new Vector3(0,0.25f);
+					cou.transform.localScale -= new Vector3(0,0.4f);
+					GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
 				}
-				else
+				else if( !Input.GetKey(KeyCode.Z) )
 				{
-					collided = false;
-					throwed = false;
 					GetComponent<HingeJoint2D>().enabled = false;
+					throwed = false;
+					collided = false;
 					hit = new RaycastHit2D();
 					Debug.Log("end");
 				}
+				else
+				{
+					throwed = false;
+					collided = false;
+				}
 			}
 		}
-	}
-
-	void DestroyPoids()
-	{
-		GetComponent<HingeJoint2D>().enabled = false;
-		Destroy( GetComponent<HingeJoint2D>().connectedBody.gameObject );
 	}
 
 	/*void Do()
