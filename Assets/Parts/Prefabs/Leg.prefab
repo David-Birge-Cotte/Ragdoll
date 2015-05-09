@@ -163,7 +163,7 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 163788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfcf61fba2b7ea499d689a3c14b0315, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c4977f8ff51ce4aa3a1b11ebd79ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   disableColliderOnDrop: 0

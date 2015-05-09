@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TongueBehaviour : MonoBehaviour {
+public class TongueBehaviour : Lamb {
 
 	public GameObject head, cou;
 	public Sprite[] mouths;

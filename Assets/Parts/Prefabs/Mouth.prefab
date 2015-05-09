@@ -42,7 +42,9 @@ GameObject:
   - 4: {fileID: 440034}
   - 50: {fileID: 5025382}
   - 114: {fileID: 11440452}
-  - 233: {fileID: 23317282}
+  - 114: {fileID: 11444110}
+  - 58: {fileID: 5866992}
+  - 232: {fileID: 23267068}
   m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
@@ -84,9 +86,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148258}
-  m_LocalRotation: {x: 0, y: 0, z: -.368943483, w: .929451883}
-  m_LocalPosition: {x: .412, y: 1.60399997, z: 0}
-  m_LocalScale: {x: .300000012, y: .100000001, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.20000005, y: .400000006, z: 0}
   m_Children:
   - {fileID: 444184}
   - {fileID: 442680}
@@ -128,10 +130,23 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5866992
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148258}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!114 &11440452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,11 +158,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4d2ff254915f844b71797900ef0253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleMin: -15
+  angleMax: 15
+  offset: {x: 0, y: -1.60000002, z: 0}
   head: {fileID: 138662}
   cou: {fileID: 176152}
   mouths:
   - {fileID: 21300000, guid: 898d5f1c8c9d42a4a9d8e4deae5bcc4e, type: 3}
   - {fileID: 21300000, guid: f7ee52fae4cd25649a0a5b8e8ba01472, type: 3}
+  throwed: 0
+  collided: 0
+--- !u!114 &11444110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c4977f8ff51ce4aa3a1b11ebd79ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableColliderOnDrop: 0
+  isAttached: 0
 --- !u!212 &21238222
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -226,25 +259,19 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 898d5f1c8c9d42a4a9d8e4deae5bcc4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!233 &23317282
-HingeJoint2D:
+--- !u!232 &23267068
+DistanceJoint2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148258}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 8.21000004}
+  m_Anchor: {x: 0, y: 3.5}
   m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+  m_Distance: 1
+  m_MaxDistanceOnly: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

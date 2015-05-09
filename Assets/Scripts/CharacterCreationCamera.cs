@@ -9,7 +9,6 @@ public class CharacterCreationCamera : MonoBehaviour
 	{
 		if ( GetComponent<Camera>().orthographicSize - Input.GetAxis("Mouse ScrollWheel")  > 2 && GetComponent<Camera>().orthographicSize - Input.GetAxis("Mouse ScrollWheel") < 15)
 		{
-			Debug.Log(GetComponent<Camera>().orthographicSize);
 			GetComponent<Camera>().orthographicSize -= Input.GetAxis("Mouse ScrollWheel");			
 		}
 	}
