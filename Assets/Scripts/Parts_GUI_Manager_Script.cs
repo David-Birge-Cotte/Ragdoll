@@ -8,7 +8,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     public GameObject[] Prefabs;
     public Sprite[] PartsSprites;
     public Button ButtonPrefab;
-    Button[] Binds;
+	GameObject[] Binds;
     int BindNumber = 0;
     public GameObject Parent;
     public GameObject BindPrefab;
@@ -29,6 +29,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 	// Use this for initialization
 	void Start()
     { 
+		Binds = new GameObject[100];
         SpawnUI();
 
 		if( PlayerPrefs.HasKey("Score") )
@@ -43,7 +44,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
         ScreenWidth = Parent.GetComponent<RectTransform>().sizeDelta.x;
         x = ScreenWidth * 0.9f;
         NumberOfParts = PartsSprites.Length;
-        Button[] ButtonArray = new Button[NumberOfParts];
+		Button[] ButtonArray = new Button[NumberOfParts];
         n = ScreenHeight / (NumberOfParts + 3);
         ButtonScale = (n);
         for (int i = 0; i < NumberOfParts; i++)
@@ -91,16 +92,9 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 			return;
 		}
 
-        Binds[BindNumber] = Instantiate(BindPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Button;
-        Binds[BindNumber].transform.SetParent(Parent.transform, false);
-
-        Debug.Log("World to point" + Camera.main.WorldToScreenPoint(SelectedObject.transform.position));
-
-        Binds[BindNumber].GetComponent<RectTransform>().anchoredPosition = new Vector2(Camera.main.WorldToScreenPoint(SelectedObject.transform.position).x - ScreenWidth / 2, Camera.main.WorldToScreenPoint(SelectedObject.transform.position).y - ScreenHeight / 2);
-        Debug.Log("RectTransform" + (Binds[BindNumber].GetComponent<RectTransform>().anchoredPosition + new Vector2(ScreenWidth / 2, ScreenHeight / 2)));
-        Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3(ButtonScale / 2, ButtonScale / 2, 1);
-        Binds[BindNumber].GetComponent<BindToLamb>().SerialNumber = BindNumber;
-        Binds[BindNumber].GetComponent<BindToLamb>().LinkedObject = SelectedObject;
+		Binds[BindNumber] = Instantiate(BindPrefab);
+		Binds[BindNumber].GetComponent<BindToLamb>().LinkedObject = SelectedObject.GetComponent<Lamb>();
+		Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3(ButtonScale / 2, ButtonScale / 2, 1);
         BindNumber++;
 
 

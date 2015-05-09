@@ -7,7 +7,7 @@ public class Lamb : MonoBehaviour
 	public float angleMin;
 	public float angleMax;
 	public Vector3 offset;
-	public KeyCode key;
+	public string userKey;
 	public List<AudioClip> SFX;
 	
 	// Use this for initialization

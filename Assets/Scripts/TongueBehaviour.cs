@@ -2,6 +2,11 @@
 
 public class TongueBehaviour : Lamb {
 
+	void Start()
+	{
+		userKey = "v";
+	}
+
 	public GameObject head, cou;
 	public Sprite[] mouths;
 
@@ -16,7 +21,7 @@ public class TongueBehaviour : Lamb {
 	{
 		Debug.DrawRay( transform.position, transform.up );
 
-		if( Input.GetKeyDown(KeyCode.Z) )
+		if( Input.GetKeyDown(userKey) )
 		{
 			GetComponent<AudioSource>().PlayOneShot(SFX[0]);
 
@@ -27,7 +32,7 @@ public class TongueBehaviour : Lamb {
 				Debug.Log("begin");
 			}
 		}
-		else if( Input.GetKeyUp(KeyCode.Z) )
+		else if( Input.GetKeyUp(userKey) )
 		{
 			if( throwed && !collided )
 			{
