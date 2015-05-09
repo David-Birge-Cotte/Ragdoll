@@ -13,7 +13,7 @@ public class TongueBehaviour : MonoBehaviour {
 
 	RaycastHit2D hit;
 
-	void FixedUpdate ()
+	void Update ()
 	{
 		Debug.DrawRay( transform.position, transform.right );
 
@@ -21,14 +21,14 @@ public class TongueBehaviour : MonoBehaviour {
 		{
 			if( !throwed )
 			{
-				/*hit = Physics2D.Raycast( transform.position, transform.right );
+				hit = Physics2D.Raycast( transform.position, transform.right );
 				if( hit.collider != null && hit.collider.tag == "platform" )
 				{
+					/*GetComponent<SliderJoint2D>().connectedAnchor = (Vector2)hit.point;
+					GetComponent<SliderJoint2D>().enabled = true;*/
 					throwed = true;
-					GetComponent<SliderJoint2D>().connectedAnchor = (Vector2)hit.point;
-					GetComponent<SliderJoint2D>().enabled = true;
-				}*/
-				throwed = true;
+					Debug.Log("begin");
+				}
 			}
 		}
 		else if( Input.GetKeyUp(KeyCode.Z) )
@@ -48,18 +48,25 @@ public class TongueBehaviour : MonoBehaviour {
 				if( hit.collider != null && hit.collider.tag == "platform" )
 				{
 					distance = Vector3.Distance( transform.position, hit.point );
-					Debug.Log(distance);
-					if( counter/20 < distance )
+
+					if( distance < 0.2f )
+						return;
+					
+					if( counter/20 < distance && counter < 40 )
 					{
-						counter++;
-						transform.localScale += new Vector3(0.05f,0);
+						counter += 2;
+						transform.localScale += new Vector3(0.1f,0);
 					}
 					else
 					{
 						collided = true;
-						//GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
-						GetComponent<HingeJoint2D>().enabled = true;
-						GetComponent<SliderJoint2D>().enabled = false;
+
+						if( counter < 40 )
+						{
+							GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
+							GetComponent<HingeJoint2D>().enabled = true;
+							//GetComponent<SliderJoint2D>().enabled = false;
+						}
 						Debug.Log("collided");
 					}
 				}
