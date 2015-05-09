@@ -64,19 +64,24 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             Vector3 mousePos = Input.mousePosition;
             mousePos = new Vector3(mousePos.x, mousePos.y, 10);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            SelectedObject.transform.position = mousePos;
+            if (SelectedObject != null)
+            {
+                SelectedObject.transform.position = mousePos;
+            }
+            
         }
 
-        if (Input.GetMouseButtonDown(1))
+        /*if (Input.GetMouseButtonDown(1))
         {
             AnObjectIsSelected = false;
             Destroy(SelectedObject);
-        }
+        }*/
     }
 
     public void DropObject(Transform pivotTransform)
     {
-        if (pivotTransform.childCount > 0)
+        
+        if (pivotTransform.childCount > 1)
             return;
 
         AnObjectIsSelected = false;
@@ -87,6 +92,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             SelectedObject.GetComponent<Collider>().enabled = false;
 
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
+        SelectedObject = null;
     }
 
   
