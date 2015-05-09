@@ -6,12 +6,6 @@ public class CameraFollow : MonoBehaviour {
 	public GameObject target;
 	public Vector3 offset;
 
-
-	// Use this for initialization
-	void Start () {
-		transform.position = target.transform.position + offset;
-	}
-	
 	// Update is called once per frame
 	void Update () {
 
@@ -20,7 +14,8 @@ public class CameraFollow : MonoBehaviour {
 		pos.y = 0;
 		pos += offset;
 
-		transform.position = pos;
+		Vector3 zero = Vector3.zero;
+		transform.position = Vector3.SmoothDamp(transform.position, pos, ref zero, 0.2f);
 	
 	}
 }
