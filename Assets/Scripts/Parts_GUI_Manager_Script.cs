@@ -77,8 +77,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
         if (pivotTransform.childCount > 1)
             return;
 
-        Debug.Log("you are trying to attach "+SelectedObject.name+" to "+pivotTransform.name);
-        
+        pivotTransform.GetComponent<AudioSource>().Play();
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
         SelectedObject = null;

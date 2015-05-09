@@ -16,12 +16,11 @@ public class PivotTrigger : MonoBehaviour {
     {
         if ( UIManager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject != gameObject )
             return;
-            
+
         if (Input.GetMouseButtonUp(0))
         {
             if ( pivotToBeAttached == null)
             {
-                Debug.Log("you dropped in the void");
                 UIManager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject = null;
                 Destroy(gameObject);
                 return;
@@ -37,7 +36,6 @@ public class PivotTrigger : MonoBehaviour {
     {       
         if (col.tag == "Pivot")
         {
-            Debug.Log("you are entering a pivot");
             pivotToBeAttached = col.gameObject;
             col.GetComponentInChildren<PivotScript>().transform.localScale = new Vector3(2, 2, 1);
         }
@@ -49,7 +47,6 @@ public class PivotTrigger : MonoBehaviour {
     {
         if (col.tag == "Pivot")
         {
-            Debug.Log("you are leaving a pivot");
             pivotToBeAttached = null;
             col.GetComponentInChildren<PivotScript>().transform.localScale = Vector3.one;
         }

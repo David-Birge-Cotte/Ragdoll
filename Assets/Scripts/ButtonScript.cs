@@ -15,6 +15,9 @@ public class ButtonScript : MonoBehaviour {
     public void GetPart()
     {
         if ( UImanager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject == null )
+        {
             UImanager.GetComponent<Parts_GUI_Manager_Script>().GrabPart(SerialNumber);
+            GetComponent<AudioSource>().Play();
+        }
     }
 }

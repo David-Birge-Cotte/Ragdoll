@@ -676,5 +676,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6698a66c6fd2a4a956ac1f9358a1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  startPos: {x: 0, y: 0, z: 0}
+  player: {fileID: 1623864208}
+  startPos: {x: 0, y: 5, z: 0}
