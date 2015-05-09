@@ -45,6 +45,7 @@ GameObject:
   - 50: {fileID: 5070100}
   - 114: {fileID: 11419074}
   - 114: {fileID: 11471172}
+  - 114: {fileID: 11428596}
   m_Layer: 0
   m_Name: Leg
   m_TagString: Untagged
@@ -63,9 +64,10 @@ GameObject:
   - 212: {fileID: 21287942}
   - 61: {fileID: 6107858}
   - 114: {fileID: 11466974}
+  - 58: {fileID: 5853172}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Pivot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,6 +167,19 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5853172
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169520}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .455000013
 --- !u!61 &6107858
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -221,6 +236,19 @@ MonoBehaviour:
   piston: {fileID: 129792}
   foot: {fileID: 169520}
   IsOnFloor: 0
+--- !u!114 &11428596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f837fead8df5b45a41766481d2f71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivots:
+  - {fileID: 169520}
 --- !u!114 &11466974
 MonoBehaviour:
   m_ObjectHideFlags: 1

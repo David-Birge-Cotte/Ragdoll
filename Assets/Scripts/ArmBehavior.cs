@@ -12,10 +12,10 @@ public class ArmBehavior : Lamb
 		{
 
 			if(LeftOrRight){
-				GetComponent<Rigidbody2D>().AddTorque(20,ForceMode2D.Force);
+				GetComponent<Rigidbody2D>().AddTorque(5,ForceMode2D.Impulse);
 			}
 			else{
-				GetComponent<Rigidbody2D>().AddTorque(-20,ForceMode2D.Force);
+				GetComponent<Rigidbody2D>().AddTorque(-5,ForceMode2D.Impulse);
 			}
 		}
 	}

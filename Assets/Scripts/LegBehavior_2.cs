@@ -43,7 +43,7 @@ public class LegBehavior_2 : Lamb {
 			} 
 		}
 		else if(piston.transform.localPosition.y > 0.1f){
-			piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y + Time.deltaTime * speedRetract, piston.transform.localPosition.z);
+			piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y - Time.deltaTime * speedRetract, piston.transform.localPosition.z);
 		}
 	}
 }

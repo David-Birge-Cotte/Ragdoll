@@ -19,7 +19,6 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     [HideInInspector]
     public bool AnObjectIsSelected = false;
     GameObject SelectedObject;
-    public LambsManager _LambsManager;
     public GameObject Player;
 
 	// Use this for initialization
@@ -79,7 +78,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     {
         if (pivotTransform.childCount > 0)
             return;
-            
+
         AnObjectIsSelected = false;
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
         SelectedObject.GetComponent<PivotTrigger>().isAttached = true;
@@ -87,7 +86,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
         if ( SelectedObject.GetComponent<PivotTrigger>().disableColliderOnDrop )
             SelectedObject.GetComponent<Collider>().enabled = false;
 
-        _LambsManager.AttachLamb(SelectedObject, pivotTransform);
+        pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
     }
 
   
