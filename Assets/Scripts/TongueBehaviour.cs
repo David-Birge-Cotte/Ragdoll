@@ -4,28 +4,24 @@ using System.Collections.Generic;
 
 public class TongueBehaviour : MonoBehaviour {
 
-	public GameObject tongue;
+	public GameObject poids;
 
 	bool throwed, collided;
 
 	int counter = 0;
+	float distance;
 
-	public GameObject objPrefab;
-	List<GameObject> objs = new List<GameObject>();
-
-	GameObject lastObj;
+	RaycastHit2D hit;
 
 	void Update ()
 	{
+		Debug.DrawRay( transform.position, transform.right );
+
 		if( Input.GetKeyDown(KeyCode.Z) )
 		{
 			if( !throwed )
 			{
 				throwed = true;
-				GetComponent<HingeJoint2D>().enabled = false;
-				tongue.GetComponent<SliderJoint2D>().enabled = false;
-				tongue.GetComponent<SliderJoint2D>().useMotor = true;
-				InvokeRepeating( "Do", 0.1f, 0.12f );
 			}
 		}
 		else if( Input.GetKeyUp(KeyCode.Z) )
@@ -33,12 +29,51 @@ public class TongueBehaviour : MonoBehaviour {
 			if( throwed )
 			{
 				collided = true;
-				tongue.GetComponent<SliderJoint2D>().useMotor = false;
+			}
+		}
+
+		if( Input.GetKey(KeyCode.Z) )
+		{
+			if( throwed )
+			{
+				hit = Physics2D.Raycast( transform.position+transform.TransformPoint(10,0,0), transform.right );
+				if( hit.collider != null )
+				{
+					if( !collided )
+					{
+						distance = Vector3.Distance( transform.position, hit.point );
+						if( counter < distance )
+						{
+							counter++;
+							transform.localScale += new Vector3(0.15f,0);
+						}
+						else
+						{
+							collided = true;
+							GetComponent<HingeJoint2D>().connectedBody = ((GameObject)Instantiate( poids, hit.point, Quaternion.identity )).GetComponent<Rigidbody2D>();
+							//hit.collider.GetComponent<HingeJoint2D>().anchor = (Vector2)hit.transform.InverseTransformPoint( hit.point );
+							GetComponent<HingeJoint2D>().enabled = true;
+						}
+					}
+					else
+					{
+						if( counter > 0 )
+						{
+							counter--;
+							transform.localScale -= new Vector3(0.15f,0);
+						}
+						else
+						{
+							collided = false;
+							throwed = false;
+						}
+					}
+				}
 			}
 		}
 	}
 
-	void Do()
+	/*void Do()
 	{
 		if( !collided )
 		{
@@ -78,11 +113,6 @@ public class TongueBehaviour : MonoBehaviour {
 				counter--;
 				Destroy( objs[0] );
 				objs.RemoveAt(0);
-
-				/*if( counter > 1 )
-					objs[0].GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
-				else
-					tongue.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();*/
 			}
 			else
 			{
@@ -94,5 +124,5 @@ public class TongueBehaviour : MonoBehaviour {
 				CancelInvoke( "Do" );
 			}
 		}
-	}
+	}*/
 }
