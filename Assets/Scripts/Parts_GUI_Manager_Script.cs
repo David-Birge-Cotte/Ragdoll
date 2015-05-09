@@ -73,7 +73,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos = new Vector3(mousePos.x, mousePos.y, 10);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            SelectedObject.transform.position = mousePos;            
+            SelectedObject.transform.position = mousePos;
         }
 
         /*if (Input.GetMouseButtonDown(1))
