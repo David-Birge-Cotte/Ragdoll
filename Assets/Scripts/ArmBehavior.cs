@@ -18,5 +18,18 @@ public class ArmBehavior : Lamb
 				GetComponent<Rigidbody2D>().AddTorque(-20,ForceMode2D.Force);
 			}
 		}
+
+
+		//Inverse ! A tester ? Peut etre ! Mais p'tet pas. A discuss en GD.
+		if(Input.GetKey(KeyCode.Z))
+		{
+			
+			if(LeftOrRight){
+				GetComponent<Rigidbody2D>().AddTorque(-20,ForceMode2D.Force);
+			}
+			else{
+				GetComponent<Rigidbody2D>().AddTorque(20,ForceMode2D.Force);
+			}
+		}
 	}
 }
