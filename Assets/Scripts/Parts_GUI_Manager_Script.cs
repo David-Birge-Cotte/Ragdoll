@@ -67,6 +67,12 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             SelectedObject.transform.position = mousePos;
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            AnObjectIsSelected = false;
+            Destroy(SelectedObject);
+        }
     }
 
     public void DropObject(Transform ObjectTransform)
