@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class TongueBehaviour : MonoBehaviour {
 
 	public GameObject head, cou;
 	public Sprite[] mouths;
 
-	bool throwed, collided;
+	public bool throwed, collided;
 
-	float distance;
+	float distance, velocityF;
+	Vector3 velocity;
 
 	RaycastHit2D hit;
 
@@ -19,7 +18,7 @@ public class TongueBehaviour : MonoBehaviour {
 
 		if( Input.GetKeyDown(KeyCode.Z) )
 		{
-			if( !throwed )
+			if( !throwed && !collided )
 			{
 				throwed = true;
 				head.GetComponent<SpriteRenderer>().sprite = mouths[1];
@@ -36,7 +35,7 @@ public class TongueBehaviour : MonoBehaviour {
 			}
 			else if( !throwed )
 			{
-				GetComponent<HingeJoint2D>().enabled = false;
+				GetComponent<DistanceJoint2D>().enabled = false;
 				throwed = false;
 				collided = false;
 				hit = new RaycastHit2D();
@@ -51,6 +50,9 @@ public class TongueBehaviour : MonoBehaviour {
 				head.transform.localPosition += new Vector3(0,0.5f);
 				cou.transform.localPosition += new Vector3(0,0.25f);
 				cou.transform.localScale += new Vector3(0,0.4f);
+				/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
+				cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
+				cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,4), ref velocity, 0.3f );*/
 
 				hit = Physics2D.Raycast( transform.position, transform.up );
 				if( hit.collider != null && hit.collider.tag == "platform" )
@@ -63,11 +65,10 @@ public class TongueBehaviour : MonoBehaviour {
 						collided = true;
 						Debug.Log("collided");
 					}
-					else if( head.transform.localPosition.y > distance/0.3f )
+					else if( head.transform.localPosition.y > distance )
 					{
-						GetComponent<HingeJoint2D>().anchor = new Vector2(0,distance)/0.3f;
-						GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
-						GetComponent<HingeJoint2D>().enabled = true;
+						GetComponent<DistanceJoint2D>().connectedAnchor = (Vector2)hit.point;
+						GetComponent<DistanceJoint2D>().enabled = true;
 
 						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
@@ -85,14 +86,19 @@ public class TongueBehaviour : MonoBehaviour {
 			{
 				if( head.transform.localPosition.y > 2.3f )
 				{
+					/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,2.2f), ref velocity, 0.3f );
+					cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, Vector3.zero, ref velocity, 0.3f );
+					cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,1.5f), ref velocity, 0.3f );*/
+					GetComponent<DistanceJoint2D>().distance = Mathf.SmoothDamp( GetComponent<DistanceJoint2D>().distance, 0, ref velocityF, 0.3f );
+
 					head.transform.localPosition -= new Vector3(0,0.5f);
 					cou.transform.localPosition -= new Vector3(0,0.25f);
 					cou.transform.localScale -= new Vector3(0,0.4f);
-					GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
+					//GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
 				}
 				else if( !Input.GetKey(KeyCode.Z) )
 				{
-					GetComponent<HingeJoint2D>().enabled = false;
+					GetComponent<DistanceJoint2D>().enabled = false;
 					throwed = false;
 					collided = false;
 					hit = new RaycastHit2D();
@@ -106,57 +112,4 @@ public class TongueBehaviour : MonoBehaviour {
 			}
 		}
 	}
-
-	/*void Do()
-	{
-		if( !collided )
-		{
-			if( counter < 10 )
-			{
-				lastObj = (GameObject)Instantiate( objPrefab, transform.TransformPoint( new Vector3( -0.3f,0) ), transform.rotation );
-				lastObj.transform.parent = transform;
-
-				if( counter == 0 )
-					lastObj.GetComponent<HingeJoint2D>().connectedBody = tongue.GetComponent<Rigidbody2D>();
-				else if( counter > 0 )
-					lastObj.GetComponent<HingeJoint2D>().connectedBody = objs[ objs.Count-1 ].GetComponent<Rigidbody2D>();
-
-				if( counter == 9 )
-				{
-					GetComponent<HingeJoint2D>().enabled = true;
-					GetComponent<HingeJoint2D>().connectedBody = lastObj.GetComponent<Rigidbody2D>();
-				}
-				
-				lastObj.GetComponent<HingeJoint2D>().anchor = new Vector2(-0.35f,0);
-				lastObj.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0.35f,0);
-				//tongue.GetComponent<HingeJoint2D>().connectedBody = lastObj.GetComponent<Rigidbody2D>();
-				//Debug.Log( objs[ objs.Count-1 ].name );
-				objs.Add( lastObj );
-				counter++;
-			}
-			else
-			{
-				collided = true;
-				tongue.GetComponent<SliderJoint2D>().useMotor = false;
-			}
-		}
-		else
-		{
-			if( counter > 0 )
-			{
-				counter--;
-				Destroy( objs[0] );
-				objs.RemoveAt(0);
-			}
-			else
-			{
-				tongue.GetComponent<SliderJoint2D>().enabled = false;
-				GetComponent<HingeJoint2D>().enabled = true;
-				GetComponent<HingeJoint2D>().connectedBody = tongue.GetComponent<Rigidbody2D>();
-				collided = false;
-				throwed = false;
-				CancelInvoke( "Do" );
-			}
-		}
-	}*/
 }
