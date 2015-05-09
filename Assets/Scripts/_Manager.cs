@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class _Manager : MonoBehaviour {
 
-	public int Score;	
+	static int score;
+	int adnNbr;
 	public Text ScoreUI, soundButton;
-	public GameObject pausePanel;
-	GameObject[] listeCollectibles;
+	public GameObject pausePanel, inGamePanel;
 
 	GameObject player;
 	Vector3 initialPlayerPos;
 
 
-	void Start(){
+	void Start()
+	{
 		player = GameObject.Find("Player");
 		initialPlayerPos = player.transform.position;
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
+		adnNbr = GameObject.FindGameObjectsWithTag("ADN").Length;
 	}
 
 
 
-	void Update () 
+	public void AddScore () 
 	{
-		listeCollectibles = GameObject.FindGameObjectsWithTag("Collectible");
-		ScoreUI.text = "Score : " + Score.ToString() + "/" + listeCollectibles.Length.ToString();
+		score++;
+		ScoreUI.text = "Score : " + score + " / " + adnNbr;
 	}
 
 	public void RestartLevel()
@@ -48,6 +49,7 @@ public class _Manager : MonoBehaviour {
 	public void GoToEditor()
 	{
 		Destroy( player );
+		//inGamePanel.SetActive(false);
 		Application.LoadLevel("CharacterCreation");
 	}
 
@@ -58,11 +60,13 @@ public class _Manager : MonoBehaviour {
 		{
 			Camera.main.GetComponent<AudioSource>().mute = soundActive = false;
 			soundButton.text = "Sound : OFF";
+			PlayerPrefs.SetInt("Sound", 0);
 		}
 		else
 		{
 			Camera.main.GetComponent<AudioSource>().mute = soundActive = true;
 			soundButton.text = "Sound : ON";
+			PlayerPrefs.SetInt("Sound", 0);
 		}
 	}
 
