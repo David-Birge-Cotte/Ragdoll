@@ -14,7 +14,7 @@ public class ButtonScript : MonoBehaviour {
 
     public void GetPart()
     {
-        if (UImanager.GetComponent<Parts_GUI_Manager_Script>().AnObjectIsSelected == false)
-        UImanager.GetComponent<Parts_GUI_Manager_Script>().GrabPart(SerialNumber);
+        if ( UImanager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject == null )
+            UImanager.GetComponent<Parts_GUI_Manager_Script>().GrabPart(SerialNumber);
     }
 }

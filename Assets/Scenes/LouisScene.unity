@@ -87,6 +87,34 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10585486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1075606865}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 10585487}
+  - 50: {fileID: 1167886184}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &10585487
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1075606865}
+  m_GameObject: {fileID: 10585486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325583411}
+  m_RootOrder: 0
 --- !u!1 &79942725
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +344,36 @@ Transform:
   - {fileID: 1113902281}
   - {fileID: 103498041}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+--- !u!1 &325583410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1075606865}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 325583411}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325583411
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1075606865}
+  m_GameObject: {fileID: 325583410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 10585487}
+  - {fileID: 1283345283}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &389264219
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,8 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f837fead8df5b45a41766481d2f71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivots:
-  - {fileID: 979837395}
 --- !u!114 &389264223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,9 +433,14 @@ MonoBehaviour:
   angleMin: -10
   angleMax: 15
   offset: {x: 0, y: 0, z: 0}
+  key: 0
+  speedExtend: 12
+  speedRetract: 20
+  speedRetractPivot: 10
   piston: {fileID: 1285303464}
   foot: {fileID: 979837395}
   IsOnFloor: 0
+  maxYPiston: 2
 --- !u!1 &547625012
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +699,7 @@ Transform:
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!58 &738890372
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1144,6 +1204,7 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 23317282, guid: ab3ade9304908f24baddefca99ab635c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ab3ade9304908f24baddefca99ab635c, type: 2}
+  m_RootGameObject: {fileID: 325583410}
   m_IsPrefabParent: 0
 --- !u!1 &1086115971
 GameObject:
@@ -1439,11 +1500,22 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6d8ecab724756dd439547f4be2766c2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!50 &1167886184 stripped
+--- !u!50 &1167886184
 Rigidbody2D:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5025382, guid: ab3ade9304908f24baddefca99ab635c,
     type: 2}
   m_PrefabInternal: {fileID: 1075606865}
+  m_GameObject: {fileID: 10585486}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1168204397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,10 +1600,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 273060315}
   m_RootOrder: 0
---- !u!1 &1283345282 stripped
+--- !u!1 &1283345282
 GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 148258, guid: ab3ade9304908f24baddefca99ab635c, type: 2}
   m_PrefabInternal: {fileID: 1075606865}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1283345283}
+  - 232: {fileID: 1283345286}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1283345283
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1075606865}
+  m_GameObject: {fileID: 1283345282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325583411}
+  m_RootOrder: 1
 --- !u!232 &1283345286
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -1784,7 +1880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1364022642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,6 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1.79999995, z: -10}
+  smoothiness: .200000003
 --- !u!1 &1412885527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,7 +1961,7 @@ Transform:
   m_LocalScale: {x: 103.190041, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1611072186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +2077,7 @@ Transform:
   - {fileID: 79942726}
   - {fileID: 923567596}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1663340226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,8 +2090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f837fead8df5b45a41766481d2f71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivots:
-  - {fileID: 810837742}
 --- !u!114 &1663340228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,9 +2105,14 @@ MonoBehaviour:
   angleMin: -10
   angleMax: 15
   offset: {x: 0, y: 0, z: 0}
+  key: 0
+  speedExtend: 12
+  speedRetract: 20
+  speedRetractPivot: 10
   piston: {fileID: 1138100371}
   foot: {fileID: 810837742}
   IsOnFloor: 0
+  maxYPiston: 2
 --- !u!1 &1725247130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,7 +2190,9 @@ MonoBehaviour:
   angleMin: -45
   angleMax: 45
   offset: {x: 0, y: 0, z: 0}
-  LeftOrRight: 1
+  key: 0
+  inverted: 0
+  force: 25
 --- !u!212 &1725247133
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -161,11 +161,12 @@ MonoBehaviour:
   angleMin: -15
   angleMax: 15
   offset: {x: 0, y: -1.60000002, z: 0}
+  key: 0
   head: {fileID: 138662}
   cou: {fileID: 176152}
   mouths:
-  - {fileID: 21300000, guid: 898d5f1c8c9d42a4a9d8e4deae5bcc4e, type: 3}
-  - {fileID: 21300000, guid: f7ee52fae4cd25649a0a5b8e8ba01472, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   throwed: 0
   collided: 0
 --- !u!114 &11444110
@@ -176,11 +177,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 148258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c4977f8ff51ce4aa3a1b11ebd79ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e19897fc40c2c24db4371de9f8c30fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableColliderOnDrop: 0
-  isAttached: 0
 --- !u!212 &21238222
 SpriteRenderer:
   m_ObjectHideFlags: 1
