@@ -20,10 +20,18 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     public GameObject SelectedObject;
     public GameObject Player;
 
+
+	public int memberLimit = 3;
+
 	// Use this for initialization
 	void Start()
     { 
         SpawnUI();
+
+		if( PlayerPrefs.HasKey("Score") )
+		{
+			memberLimit += PlayerPrefs.GetInt("Score");
+		}
 	}
 
     public void SpawnUI()
@@ -74,15 +82,16 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     public void DropObject( Transform pivotTransform )
     {        
-        if (pivotTransform.childCount > 1)
-            return;
+		if (pivotTransform.childCount > 1 || memberLimit == 0)
+		{
+			Destroy( SelectedObject );
+			return;
+		}
 
         pivotTransform.GetComponent<AudioSource>().Play();
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
         SelectedObject = null;
+		memberLimit--;
     }
-
-  
-
 }
