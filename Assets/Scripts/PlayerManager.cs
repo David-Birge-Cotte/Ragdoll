@@ -5,10 +5,19 @@ public class PlayerManager : MonoBehaviour
 {
 
 	public GameObject particlePrefab;
+    bool DontRecreate = false;
 
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (DontRecreate == false)
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
+    }
+
+    void Start()
+    {
+        DontRecreate = true;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
