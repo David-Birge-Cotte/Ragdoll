@@ -46,7 +46,7 @@ GameObject:
   - 50: {fileID: 5038318}
   - 114: {fileID: 11412418}
   m_Layer: 0
-  m_Name: LegPivot_2
+  m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
