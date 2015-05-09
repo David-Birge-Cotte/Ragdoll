@@ -51,13 +51,23 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     public void GrabPart(int i) //parties du corps de 0 à i
     {
         SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        SelectedObject.GetComponent<BoxCollider2D>().enabled = false;
+        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = true;
         AnObjectIsSelected = true;
 
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (AnObjectIsSelected)
+            {
+
+            }
+        }
+
+
+
         if (AnObjectIsSelected == true)
         {
             Vector3 mousePos = Input.mousePosition;
@@ -65,6 +75,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             SelectedObject.transform.position = mousePos;
         }
-        
     }
+
+  
+
 }
