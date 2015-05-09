@@ -13,7 +13,7 @@ public class Collectible : MonoBehaviour {
 
 	void OnCollisionStay2D (Collision2D other) 
 	{
-		if (other.transform.tag != "Plateform" && collected == false)
+		if (other.transform.tag != "Platform" && collected == false)
 		{
 			collected = true;
 			manager.Score ++;
