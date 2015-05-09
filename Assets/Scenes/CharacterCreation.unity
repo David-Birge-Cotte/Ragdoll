@@ -366,7 +366,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1065893576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6741ead02291648b18de94e642b0dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 00794a6c7b97aff4ebdb57671a02a289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1325636624
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
-  - {fileID: 163788, guid: 812fbd0dc92a12d49a65767eb39f582b, type: 2}
+  - {fileID: 163788, guid: 7ccd89e5256be8249850a42a5544fb89, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   PartsSprites:
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2111688163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6698a66c6fd2a4a956ac1f9358a1fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 225929beedee20a42b2b8f29c2ea9c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 460883407}
