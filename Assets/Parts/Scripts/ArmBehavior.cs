@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ArmBehavior : MonoBehaviour 
 {
+	public bool DroiteOuGauche;
+
+
 
 	// Use this for initialization
 	void Start () 
@@ -11,11 +14,15 @@ public class ArmBehavior : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		if(Input.GetKeyDown(KeyCode.A))
 		{
-			GetComponent<Rigidbody2D>().AddTorque(2,ForceMode2D.Impulse);
+
+			if(DroiteOuGauche) //Droite
+				GetComponent<Rigidbody2D>().AddTorque(2,ForceMode2D.Impulse);
+			else if (!DroiteOuGauche) //gauche
+				GetComponent<Rigidbody2D>().AddTorque(-2,ForceMode2D.Impulse);
 		}
 	}
 }
