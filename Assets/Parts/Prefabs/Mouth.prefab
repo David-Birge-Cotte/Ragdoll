@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 148258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.20000005, y: .400000006, z: 0}
+  m_LocalScale: {x: 1.20000005, y: .400000006, z: 1}
   m_Children:
   - {fileID: 444184}
   - {fileID: 442680}
@@ -161,7 +161,7 @@ MonoBehaviour:
   angleMin: -15
   angleMax: 15
   offset: {x: 0, y: -1.60000002, z: 0}
-  key: 0
+  userKey: 
   head: {fileID: 138662}
   cou: {fileID: 176152}
   mouths:
@@ -264,7 +264,7 @@ DistanceJoint2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: 0, y: 3.5}

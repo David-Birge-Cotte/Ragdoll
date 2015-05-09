@@ -22,6 +22,7 @@ public class LegBehavior_2 : Lamb {
 	void Start()
 	{
 		player = GameObject.Find("Player");
+		userKey = "c";
 	}
 
 	void Update () {
@@ -32,7 +33,7 @@ public class LegBehavior_2 : Lamb {
 		IsOnFloor = foot.GetComponent<FootTestCollision>().IsOnFloor;
 
 
-		if(Input.GetKey(KeyCode.Space))
+		if(Input.GetKey(userKey))
 		{
 			if(piston.transform.localPosition.y < maxYPiston)
 			{
