@@ -6,7 +6,7 @@ public class LambsManager : MonoBehaviour
 {
 	public List<GameObject> pivots;
 
-	void AttachLamb( GameObject lamb, Transform pivot )
+	public void AttachLamb( GameObject lamb, Transform pivot )
 	{
 		lamb.transform.parent = pivot;
 		lamb.transform.localPosition = lamb.GetComponent<Lamb>().offset;

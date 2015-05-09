@@ -250,6 +250,10 @@ Prefab:
       propertyPath: m_TagString
       value: Pivot
       objectReference: {fileID: 0}
+    - target: {fileID: 5041272, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
   m_IsPrefabParent: 0
