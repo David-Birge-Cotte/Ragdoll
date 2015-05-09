@@ -103,7 +103,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.66524267
+  m_Radius: .440490246
 --- !u!1 &438432997
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
-  - {fileID: 164920, guid: 9fe0f3852b2cf2044a5c49d4096c5860, type: 2}
-  - {fileID: 164920, guid: 9fe0f3852b2cf2044a5c49d4096c5860, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   PartsSprites:
   - {fileID: 21300000, guid: 92843d5ba34e9624e949a9750b24e0f7, type: 3}
