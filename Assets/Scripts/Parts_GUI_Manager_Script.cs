@@ -19,6 +19,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     [HideInInspector]
     public bool AnObjectIsSelected = false;
     GameObject SelectedObject;
+    public LambsManager _LambsManager;
+    public GameObject Player;
 
 	// Use this for initialization
 	void Start()
@@ -58,16 +60,6 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (AnObjectIsSelected)
-            {
-
-            }
-        }
-
-
-
         if (AnObjectIsSelected == true)
         {
             Vector3 mousePos = Input.mousePosition;
@@ -75,6 +67,14 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             SelectedObject.transform.position = mousePos;
         }
+    }
+
+    public void DropObject(Transform ObjectTransform)
+    {
+        AnObjectIsSelected = false;
+        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        _LambsManager.AttachLamb(SelectedObject, ObjectTransform);
+        ;
     }
 
   

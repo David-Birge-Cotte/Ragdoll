@@ -48,7 +48,7 @@ public class LambsManager : MonoBehaviour
 
 	}
 
-	void AttachLamb( GameObject lamb, Transform pivot )
+	public void AttachLamb( GameObject lamb, Transform pivot )
 	{
 		lamb.transform.parent = pivot;
 		lamb.transform.localPosition = selectedLamb.transform.localPosition;
