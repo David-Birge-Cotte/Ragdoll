@@ -192,7 +192,7 @@ Transform:
   - {fileID: 1611072190}
   - {fileID: 1113902281}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &471774645
 Prefab:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ Transform:
   m_LocalScale: {x: 103.190041, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1611072186
 GameObject:
   m_ObjectHideFlags: 0

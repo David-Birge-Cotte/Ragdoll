@@ -6,10 +6,12 @@ public class _Manager : MonoBehaviour {
 
 	public int Score;	
 	public Text ScoreUI;
+	private GameObject[] listeCollectibles;
 
 	void Update () 
 	{
-		ScoreUI.text = "Score : " + Score.ToString();
+		listeCollectibles = GameObject.FindGameObjectsWithTag("Collectible");
+		ScoreUI.text = "Score : " + Score.ToString() + "/" + listeCollectibles.Length.ToString();
 	}
 
 	public void restartLevel()
