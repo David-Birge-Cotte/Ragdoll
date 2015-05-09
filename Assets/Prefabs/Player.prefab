@@ -25,8 +25,8 @@ GameObject:
   - 4: {fileID: 456234}
   - 212: {fileID: 21276878}
   - 50: {fileID: 5041272}
-  - 58: {fileID: 5865548}
   - 114: {fileID: 11467216}
+  - 60: {fileID: 6091270}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -55,8 +55,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175190}
-  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: 0, y: .224999994, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.71000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456234}
@@ -67,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104176}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
-  m_LocalPosition: {x: -.224999994, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
+  m_LocalPosition: {x: -1.80999994, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456234}
@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0769999996, y: .153999999, z: 0}
+  m_LocalPosition: {x: .300000012, y: 1.92999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433526}
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5865548
-CircleCollider2D:
+--- !u!60 &6091270
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -113,8 +113,57 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .224999994
+  m_Points:
+    m_Paths:
+    - - {x: 1.12, y: -1.46000004}
+      - {x: 1.30999994, y: -1.32000005}
+      - {x: 1.45000005, y: -1.20000005}
+      - {x: 1.60000002, y: -1}
+      - {x: 1.71000004, y: -.75}
+      - {x: 1.75, y: -.569999993}
+      - {x: 1.75, y: -.0700000003}
+      - {x: 1.73000002, y: .0700000003}
+      - {x: 1.72000003, y: .150000006}
+      - {x: 1.62, y: .430000007}
+      - {x: 1.54999995, y: .589999974}
+      - {x: 1.44000006, y: .800000012}
+      - {x: 1.36000001, y: .920000017}
+      - {x: 1.22000003, y: 1.09000003}
+      - {x: 1.00999999, y: 1.30999994}
+      - {x: .870000005, y: 1.41999996}
+      - {x: .779999971, y: 1.48000002}
+      - {x: .49000001, y: 1.62}
+      - {x: .330000013, y: 1.66999996}
+      - {x: .239999995, y: 1.69000006}
+      - {x: -.25, y: 1.69000006}
+      - {x: -.379999995, y: 1.65999997}
+      - {x: -.540000021, y: 1.60000002}
+      - {x: -.660000026, y: 1.54999995}
+      - {x: -.889999986, y: 1.40999997}
+      - {x: -.980000019, y: 1.34000003}
+      - {x: -1.17999995, y: 1.14999998}
+      - {x: -1.33000004, y: .970000029}
+      - {x: -1.45000005, y: .790000021}
+      - {x: -1.53999996, y: .620000005}
+      - {x: -1.65999997, y: .370000005}
+      - {x: -1.72000003, y: .170000002}
+      - {x: -1.75, y: -.0199999996}
+      - {x: -1.75, y: -.560000002}
+      - {x: -1.73000002, y: -.660000026}
+      - {x: -1.71000004, y: -.730000019}
+      - {x: -1.67999995, y: -.850000024}
+      - {x: -1.57000005, y: -1.03999996}
+      - {x: -1.47000003, y: -1.16999996}
+      - {x: -1.29999995, y: -1.34000003}
+      - {x: -1.13999999, y: -1.44000006}
+      - {x: -.850000024, y: -1.58000004}
+      - {x: -.75999999, y: -1.61000001}
+      - {x: -.460000008, y: -1.66999996}
+      - {x: -.310000002, y: -1.69000006}
+      - {x: .319999993, y: -1.69000006}
+      - {x: .389999986, y: -1.67999995}
+      - {x: .689999998, y: -1.63}
+      - {x: .829999983, y: -1.58000004}
 --- !u!114 &11467216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,6 +179,7 @@ MonoBehaviour:
   - {fileID: 175190}
   - {fileID: 104176}
   selectedLamb: {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
+  particlePrefab: {fileID: 161528, guid: f32a3f76170f23743a1fe47f56a8581f, type: 2}
 --- !u!212 &21276878
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -154,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e2562757e68d77d428cac5ec9b953195, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 909916363abcbe844b8516a089870a31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
