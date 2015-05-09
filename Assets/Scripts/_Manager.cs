@@ -48,8 +48,9 @@ public class _Manager : MonoBehaviour {
 
 	public void GoToEditor()
 	{
+		PlayerPrefs.SetInt("Score", score );
 		Destroy( player );
-		//inGamePanel.SetActive(false);
+		Time.timeScale = 1;
 		Application.LoadLevel("CharacterCreation");
 	}
 

@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Plateforme
-  - Pivot
-  - Collectible
+  - platform
   - ADN
+  - pivot
+  - Collectible
+  - EndLevel
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Lambs
-  - Particles
+  - 
+  - 
+  - 
   - 
   - 
   - 

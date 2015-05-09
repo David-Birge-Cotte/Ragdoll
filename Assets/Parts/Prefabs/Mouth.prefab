@@ -237,8 +237,13 @@ MonoBehaviour:
   head: {fileID: 138662}
   cou: {fileID: 176152}
   mouths:
+<<<<<<< HEAD
   - {fileID: 21300000, guid: 74a42950769e7434a95859bf0d6f627b, type: 3}
   - {fileID: 21300000, guid: 58a33e20e9e8e81418da3e10038d0ba0, type: 3}
+=======
+  - {fileID: 21300000, guid: ecb25f7734b3e53429db74719ca57c33, type: 3}
+  - {fileID: 21300000, guid: 98c751505e81f954abf2a70fe0067256, type: 3}
+>>>>>>> 1043d9abebf950da50ccfb2b06d92aa88fec79c0
   throwed: 0
   collided: 0
 --- !u!114 &11444110
@@ -249,7 +254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 148258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e19897fc40c2c24db4371de9f8c30fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 180822460d72e464f8473e0272deebd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21238222
@@ -276,7 +281,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 56771cfc7513e654c97203c98296dc14, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 79f1ca7e43d002341b6db6f76dd369ce, type: 3}
+>>>>>>> 1043d9abebf950da50ccfb2b06d92aa88fec79c0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21248446
 SpriteRenderer:
@@ -302,7 +311,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 2e4adc8709920734bbd87c8dd45f2b10, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: eee115ae7d6029c4ca26e4a46211218a, type: 3}
+>>>>>>> 1043d9abebf950da50ccfb2b06d92aa88fec79c0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21297110
 SpriteRenderer:
@@ -328,7 +341,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 6
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 74a42950769e7434a95859bf0d6f627b, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: ecb25f7734b3e53429db74719ca57c33, type: 3}
+>>>>>>> 1043d9abebf950da50ccfb2b06d92aa88fec79c0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!232 &23267068
 DistanceJoint2D:

@@ -28,13 +28,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
-  - {fileID: 163788, guid: 812fbd0dc92a12d49a65767eb39f582b, type: 2}
-  - {fileID: 148258, guid: 7827564cd5e657845acf440e03ba25ab, type: 2}
+  - {fileID: 120570, guid: d401d46b6601e614fa92a4d24bb6b76f, type: 2}
+  - {fileID: 163788, guid: 956e5a8f9f941904a966c8da2d5ed56a, type: 2}
+  - {fileID: 148258, guid: ae669ce238877b5419344473c8123c77, type: 2}
   PartsSprites:
-  - {fileID: 21300000, guid: 1f51da99c1efda44995faa13d7594d92, type: 3}
-  - {fileID: 21300000, guid: 1b74648ca77edb5409932ba4d54cd1a5, type: 3}
-  - {fileID: 21300000, guid: 3f9e92d6c01a14f4aaf90eb079306f78, type: 3}
+  - {fileID: 21300000, guid: f890179cef9593e42b83610f3b7fb047, type: 3}
+  - {fileID: 21300000, guid: 7b2913bc1fb6dcd4da1aeb0dd3482e5f, type: 3}
+  - {fileID: 21300000, guid: b37a4e9aeb0b00a49994d819298bd7c8, type: 3}
   ButtonPrefab: {fileID: 11410100, guid: 149fd211ea1d63b48878bf1a16a50445, type: 2}
   Parent: {fileID: 0}
   SelectedObject: {fileID: 0}
@@ -53,7 +53,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 461.5, y: 259.5}
+  m_AnchoredPosition: {x: 41.5, y: -39}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
