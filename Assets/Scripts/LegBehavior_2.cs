@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LegBehavior_2 : MonoBehaviour {
+public class LegBehavior_2 : Lamb {
 
 	private float speedExtend = 12.0f;
 	private float speedRetract = 20.0f;
