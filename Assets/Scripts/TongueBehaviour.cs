@@ -18,6 +18,8 @@ public class TongueBehaviour : Lamb {
 
 		if( Input.GetKeyDown(KeyCode.Z) )
 		{
+			GetComponent<AudioSource>().PlayOneShot(SFX[0]);
+
 			if( !throwed && !collided )
 			{
 				throwed = true;

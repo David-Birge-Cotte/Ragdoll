@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class Parts_GUI_Manager_Script : MonoBehaviour 
 {
@@ -19,6 +20,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     //grab
     public GameObject SelectedObject;
     public GameObject Player;
+
 
 	// Use this for initialization
 	void Start()
@@ -51,6 +53,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     public void GrabPart(int i) //parties du corps de 0 à i
     {
         SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SelectedObject.transform.localScale = Vector3.zero;
+        SelectedObject.transform.DOScale( Prefabs[i].transform.localScale, 0.5f).SetEase(Ease.OutBounce);
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = true;
 
     }

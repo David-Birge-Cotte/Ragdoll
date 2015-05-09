@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class PlayerManager : MonoBehaviour 
 {
@@ -25,7 +26,9 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+    	transform.position = new Vector3(0, -5, 0);
         DontRecreate = true;
+        transform.DOMove(Vector3.zero, 3).SetEase(Ease.OutElastic);
     }
 
 	void OnCollisionEnter2D(Collision2D collision)

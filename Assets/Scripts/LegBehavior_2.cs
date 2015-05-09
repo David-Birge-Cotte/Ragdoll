@@ -32,6 +32,9 @@ public class LegBehavior_2 : Lamb {
 		IsOnFloor = foot.GetComponent<FootTestCollision>().IsOnFloor;
 
 
+		if(Input.GetKeyDown(KeyCode.Space))
+			GetComponent<AudioSource>().PlayOneShot(SFX[0]);
+
 		if(Input.GetKey(KeyCode.Space))
 		{
 			if(piston.transform.localPosition.y < maxYPiston)

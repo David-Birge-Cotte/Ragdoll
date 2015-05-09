@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Lamb : MonoBehaviour 
 {
@@ -7,6 +8,7 @@ public class Lamb : MonoBehaviour
 	public float angleMax;
 	public Vector3 offset;
 	public KeyCode key;
+	public List<AudioClip> SFX;
 	
 	// Use this for initialization
 	void Start () 
