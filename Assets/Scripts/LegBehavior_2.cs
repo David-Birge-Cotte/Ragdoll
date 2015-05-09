@@ -3,8 +3,8 @@ using System.Collections;
 
 public class LegBehavior_2 : MonoBehaviour {
 
-	private float speedExtend = 3.0f;
-	private float speedRetract = 7.0f;
+	private float speedExtend = 12.0f;
+	private float speedRetract = 20.0f;
 
 
 	public GameObject piston;
@@ -19,7 +19,7 @@ public class LegBehavior_2 : MonoBehaviour {
 
 
 	void Start(){
-		maxYPiston = -0.712f;
+		maxYPiston = -2.0f;
 		player = GameObject.Find("Player");
 	}
 
@@ -38,7 +38,7 @@ public class LegBehavior_2 : MonoBehaviour {
 				piston.transform.localPosition = new Vector3(piston.transform.localPosition.x, piston.transform.localPosition.y - Time.deltaTime * speedExtend, piston.transform.localPosition.z);
 				if(IsOnFloor && coolDown <= 0){
 					coolDown = 0.1f;
-					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 500));
+					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 800));
 				}
 			} 
 		}

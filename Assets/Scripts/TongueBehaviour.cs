@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TongueBehaviour : MonoBehaviour {
 
-	public GameObject poids;
+	//public GameObject poids;
 
 	bool throwed, collided;
 
@@ -13,7 +13,7 @@ public class TongueBehaviour : MonoBehaviour {
 
 	RaycastHit2D hit;
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		Debug.DrawRay( transform.position, transform.right );
 
@@ -21,56 +21,65 @@ public class TongueBehaviour : MonoBehaviour {
 		{
 			if( !throwed )
 			{
-				throwed = true;
+
+				hit = Physics2D.Raycast( transform.position, -transform.right );
+				if( hit.collider != null && hit.collider.tag == "platform" )
+				{
+					throwed = true;
+				}
 			}
 		}
 		else if( Input.GetKeyUp(KeyCode.Z) )
 		{
-			if( throwed )
+			if( throwed && !collided )
 			{
 				collided = true;
+				Debug.Log("collided");
 			}
 		}
 
-		if( Input.GetKey(KeyCode.Z) )
+		if( throwed )
 		{
-			if( throwed )
+			if( !collided )
 			{
-				hit = Physics2D.Raycast( transform.position+transform.TransformPoint(10,0,0), transform.right );
-				if( hit.collider != null )
+				distance = Vector3.Distance( transform.position, hit.point );
+				Debug.Log(distance);
+				if( counter/20 < distance )
 				{
-					if( !collided )
-					{
-						distance = Vector3.Distance( transform.position, hit.point );
-						if( counter < distance )
-						{
-							counter++;
-							transform.localScale += new Vector3(0.15f,0);
-						}
-						else
-						{
-							collided = true;
-							GetComponent<HingeJoint2D>().connectedBody = ((GameObject)Instantiate( poids, hit.point, Quaternion.identity )).GetComponent<Rigidbody2D>();
-							//hit.collider.GetComponent<HingeJoint2D>().anchor = (Vector2)hit.transform.InverseTransformPoint( hit.point );
-							GetComponent<HingeJoint2D>().enabled = true;
-						}
-					}
-					else
-					{
-						if( counter > 0 )
-						{
-							counter--;
-							transform.localScale -= new Vector3(0.15f,0);
-						}
-						else
-						{
-							collided = false;
-							throwed = false;
-						}
-					}
+					counter++;
+					transform.localScale += new Vector3(0.05f,0);
+				}
+				else
+				{
+					collided = true;
+					GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
+					GetComponent<HingeJoint2D>().enabled = true;
+					Debug.Log("collided");
+				}
+			}
+			else
+			{
+				if( counter > 0 )
+				{
+					counter--;
+					transform.localScale -= new Vector3(0.05f,0);
+				}
+				else
+				{
+					collided = false;
+					throwed = false;
+					GetComponent<HingeJoint2D>().enabled = false;
+					hit = new RaycastHit2D();
+					Debug.Log("end");
 				}
 			}
 		}
+	}
+
+	void DestroyPoids()
+	{
+		GetComponent<HingeJoint2D>().enabled = false;
+		Destroy( GetComponent<HingeJoint2D>().connectedBody.gameObject );
 	}
 
 	/*void Do()

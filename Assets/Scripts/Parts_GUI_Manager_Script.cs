@@ -19,6 +19,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     [HideInInspector]
     public bool AnObjectIsSelected = false;
     GameObject SelectedObject;
+    public LambsManager _LambsManager;
+    public GameObject Player;
 
 	// Use this for initialization
 	void Start()
@@ -51,7 +53,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     public void GrabPart(int i) //parties du corps de 0 à i
     {
         SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        SelectedObject.GetComponent<BoxCollider2D>().enabled = false;
+        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = true;
         AnObjectIsSelected = true;
 
     }
@@ -65,6 +67,16 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             SelectedObject.transform.position = mousePos;
         }
-        
     }
+
+    public void DropObject(Transform ObjectTransform)
+    {
+        AnObjectIsSelected = false;
+        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        _LambsManager.AttachLamb(SelectedObject, ObjectTransform);
+        ;
+    }
+
+  
+
 }
