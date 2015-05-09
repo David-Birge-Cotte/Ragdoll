@@ -7,7 +7,7 @@ public class FootTestCollision : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D other)
 	{
-		if(other.gameObject.tag == "platform")
+		if(other.gameObject.tag == "Platform")
 			IsOnFloor = true;
 
 	}

@@ -6,6 +6,11 @@ public class PlayerManager : MonoBehaviour
 
 	public GameObject particlePrefab;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if( GetComponent<Rigidbody2D>().velocity.magnitude < 0.2)

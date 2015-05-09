@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class _Manager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public int Score;	
+	public Text ScoreUI;
+
+	void Update () 
+	{
+		ScoreUI.text = "Score : " + Score.ToString();
 	}
 
-	public void restartLevel(){
-
+	public void restartLevel()
+	{
+		Debug.Log("Restart level");
 		Application.LoadLevel(Application.loadedLevel);
-
-
 	}
 }

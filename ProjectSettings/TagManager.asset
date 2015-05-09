@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - platform
+  - Platform
   - Pivot
+  - Collectible
   layers:
   - Default
   - TransparentFX
