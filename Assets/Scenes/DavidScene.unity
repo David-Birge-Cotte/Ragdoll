@@ -192,6 +192,33 @@ Transform:
   - {fileID: 1611072190}
   - {fileID: 1113902281}
   m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!1 &442192523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1900946351}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442192524}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &442192524
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1900946351}
+  m_GameObject: {fileID: 442192523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!4 &547625016
 Transform:
@@ -372,6 +399,33 @@ Transform:
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 273060315}
+  m_RootOrder: 3
+--- !u!1 &946898076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1417125448}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 946898077}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946898077
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1417125448}
+  m_GameObject: {fileID: 946898076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1029926083
 GameObject:
@@ -986,6 +1040,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8037d33e930b3964ba7987099fc52b22, type: 2}
+  m_RootGameObject: {fileID: 946898076}
   m_IsPrefabParent: 0
 --- !u!1001 &1447284810
 Prefab:
@@ -1028,6 +1083,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9831d7a5cb751944a857dc0b2e9fcc18, type: 2}
+  m_RootGameObject: {fileID: 1268138900}
   m_IsPrefabParent: 0
 --- !u!4 &1447284811
 Transform:
@@ -1167,6 +1223,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 933a342b197952746a55748f7fa76d09, type: 2}
+  m_RootGameObject: {fileID: 442192523}
   m_IsPrefabParent: 0
 --- !u!1 &2002078699
 GameObject:

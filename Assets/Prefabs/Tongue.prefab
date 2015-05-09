@@ -71,7 +71,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4d2ff254915f844b71797900ef0253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poids: {fileID: 177532, guid: 3607dbbfa85693e49a99b6184aa369f7, type: 2}
+  angleMin: 0
+  angleMax: 0
+  offset: {x: 0, y: 0, z: 0}
+  key: 0
+  head: {fileID: 0}
+  cou: {fileID: 0}
+  mouths: []
+  throwed: 0
+  collided: 0
 --- !u!212 &21209272
 SpriteRenderer:
   m_ObjectHideFlags: 1

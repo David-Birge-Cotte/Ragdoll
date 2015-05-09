@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class LambsManager : MonoBehaviour 
 {
-	public List<GameObject> pivots;
-
 	public void AttachLamb( GameObject lamb, Transform pivot )
 	{
 		lamb.transform.parent = pivot;

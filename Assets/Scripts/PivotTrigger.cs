@@ -3,12 +3,8 @@ using System.Collections;
 
 public class PivotTrigger : MonoBehaviour {
 
-    GameObject UIManager;
-    public bool disableColliderOnDrop = false;
-    bool ObjectOnTrigger = false;
-    GameObject Pivot;
-
-    [HideInInspector] public bool isAttached = false;
+    private GameObject UIManager;
+    private GameObject pivotToBeAttached;
 	// Use this for initialization
 	void Start () 
     {
@@ -18,24 +14,33 @@ public class PivotTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if ( UIManager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject != gameObject )
+            return;
+            
         if (Input.GetMouseButtonUp(0))
         {
-            OMU();
+            if ( pivotToBeAttached == null)
+            {
+                Debug.Log("you dropped in the void");
+                UIManager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject = null;
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                UIManager.GetComponent<Parts_GUI_Manager_Script>().DropObject(pivotToBeAttached.transform);
+            }
         }
 	}
 
     void OnTriggerEnter2D(Collider2D col)
-    {
-       
+    {       
         if (col.tag == "Pivot")
         {
-            ObjectOnTrigger = true;
-            Pivot = col.gameObject;
-            if (col.GetComponentInChildren<PivotScript>() != null)
-            {
-                col.GetComponentInChildren<PivotScript>().transform.localScale = new Vector3(2, 2, 1);
-            }
-            }
+            Debug.Log("you are entering a pivot");
+            pivotToBeAttached = col.gameObject;
+            col.GetComponentInChildren<PivotScript>().transform.localScale = new Vector3(2, 2, 1);
+        }
 
        
     }
@@ -44,33 +49,9 @@ public class PivotTrigger : MonoBehaviour {
     {
         if (col.tag == "Pivot")
         {
-            ObjectOnTrigger = false;
-            if (col.GetComponentInChildren<PivotScript>() != null)
-            {
-                col.GetComponentInChildren<PivotScript>().transform.localScale = Vector3.one;
-            }
+            Debug.Log("you are leaving a pivot");
+            pivotToBeAttached = null;
+            col.GetComponentInChildren<PivotScript>().transform.localScale = Vector3.one;
         }
-    }
-
-    void OMU()
-    {
-        Debug.Log("coucou");
-        if (isAttached)
-        {
-            return;
-        }
-
-        if (ObjectOnTrigger == false)
-        {
-            Debug.Log("Destroy that object");
-            UIManager.GetComponent<Parts_GUI_Manager_Script>().AnObjectIsSelected = false;
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            UIManager.GetComponent<Parts_GUI_Manager_Script>().DropObject(Pivot.transform);
-        }
-
     }
 }

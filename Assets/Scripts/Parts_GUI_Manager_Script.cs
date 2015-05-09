@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Parts_GUI_Manager_Script : MonoBehaviour {
+public class Parts_GUI_Manager_Script : MonoBehaviour 
+{
 
     public GameObject[] Prefabs;
     public Sprite[] PartsSprites;
@@ -16,9 +17,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     float ScreenWidth;
 
     //grab
-    [HideInInspector]
-    public bool AnObjectIsSelected = false;
-    GameObject SelectedObject;
+    public GameObject SelectedObject;
     public GameObject Player;
 
 	// Use this for initialization
@@ -53,22 +52,17 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     {
         SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        AnObjectIsSelected = true;
 
     }
 
     void Update()
     {
-        if (AnObjectIsSelected == true)
+        if (SelectedObject != null)
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos = new Vector3(mousePos.x, mousePos.y, 10);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            if (SelectedObject != null)
-            {
-                SelectedObject.transform.position = mousePos;
-            }
-            
+            SelectedObject.transform.position = mousePos;            
         }
 
         /*if (Input.GetMouseButtonDown(1))
@@ -78,19 +72,14 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
         }*/
     }
 
-    public void DropObject(Transform pivotTransform)
-    {
-        
+    public void DropObject( Transform pivotTransform )
+    {        
         if (pivotTransform.childCount > 1)
             return;
 
-        AnObjectIsSelected = false;
-        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-        SelectedObject.GetComponent<PivotTrigger>().isAttached = true;
+        Debug.Log("you are trying to attach "+SelectedObject.name+" to "+pivotTransform.name);
         
-        if ( SelectedObject.GetComponent<PivotTrigger>().disableColliderOnDrop )
-            SelectedObject.GetComponent<Collider>().enabled = false;
-
+        SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
         SelectedObject = null;
     }
