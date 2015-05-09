@@ -13,9 +13,9 @@ public class ArmBehavior : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetKeyDown(KeyCode.A))
+		if(Input.GetKey(KeyCode.A))
 		{
-			GetComponent<Rigidbody2D>().AddTorque(2,ForceMode2D.Impulse);
+			GetComponent<Rigidbody2D>().AddTorque(20,ForceMode2D.Force);
 		}
 	}
 }
