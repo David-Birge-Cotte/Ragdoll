@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArmBehavior : MonoBehaviour 
+public class ArmBehavior : Lamb
 {
 	public bool LeftOrRight;
 	

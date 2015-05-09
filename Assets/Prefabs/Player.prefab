@@ -26,8 +26,7 @@ GameObject:
   - 212: {fileID: 21276878}
   - 50: {fileID: 5041272}
   - 58: {fileID: 5865548}
-  - 233: {fileID: 23352990}
-  - 233: {fileID: 23326590}
+  - 114: {fileID: 11467216}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -56,7 +55,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: 0, y: .224999994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -68,7 +67,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
   m_LocalPosition: {x: -.224999994, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -116,6 +115,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .224999994
+--- !u!114 &11467216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f837fead8df5b45a41766481d2f71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivots:
+  - {fileID: 175190}
+  - {fileID: 104176}
+  selectedLamb: {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
 --- !u!212 &21276878
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -142,44 +156,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e2562757e68d77d428cac5ec9b953195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!233 &23326590
-HingeJoint2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148446}
-  m_Enabled: 1
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_Anchor: {x: -.224999994, y: 0}
-  m_ConnectedAnchor: {x: .349999994, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 1
-  m_AngleLimits:
-    m_LowerAngle: -45
-    m_UpperAngle: 45
---- !u!233 &23352990
-HingeJoint2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148446}
-  m_Enabled: 1
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_Anchor: {x: 0, y: .224999994}
-  m_ConnectedAnchor: {x: -.349999994, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: -45
-    m_UpperAngle: 45
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
