@@ -7,6 +7,7 @@ public class LambsManager : MonoBehaviour
 	public List<GameObject> pivots;
 
 	public GameObject selectedLamb;
+	public GameObject particlePrefab;
 
 	// Use this for initialization
 	void Start () 
@@ -44,6 +45,7 @@ public class LambsManager : MonoBehaviour
 				AttachLamb(lamb, pivots[3].transform);
 			}
 		}
+
 	}
 
 	void AttachLamb( GameObject lamb, Transform pivot )
@@ -62,5 +64,20 @@ public class LambsManager : MonoBehaviour
 		limits.min = lamb.GetComponent<Lamb>().angleMin;
 		limits.max = lamb.GetComponent<Lamb>().angleMax;
 		GetComponent<HingeJoint2D>().limits = limits;
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		Debug.Log(GetComponent<Rigidbody2D>().velocity.magnitude);
+		if( GetComponent<Rigidbody2D>().velocity.magnitude < 0.2)
+		{
+			for (int i = 0; i < Random.Range(5, 10); i++)
+			{
+				Vector3 pos = collision.contacts[0].point;
+				GameObject particle = GameObject.Instantiate(particlePrefab, pos, Quaternion.identity) as GameObject;
+				particle.GetComponent<Rigidbody2D>().AddTorque(1, ForceMode2D.Impulse);
+				particle.GetComponent<Rigidbody2D>().AddForce(new Vector2( -5 + Random.value * 10, Random.value * 10) , ForceMode2D.Impulse);
+			}
+		}
 	}
 }
