@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.71000004, z: 0}
+  m_LocalPosition: {x: 0, y: 1.29999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456234}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104176}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -1.80999994, y: -0, z: 0}
+  m_LocalPosition: {x: -1.29999995, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456234}
@@ -178,8 +178,6 @@ MonoBehaviour:
   pivots:
   - {fileID: 175190}
   - {fileID: 104176}
-  selectedLamb: {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
-  particlePrefab: {fileID: 161528, guid: f32a3f76170f23743a1fe47f56a8581f, type: 2}
 --- !u!212 &21276878
 SpriteRenderer:
   m_ObjectHideFlags: 1
