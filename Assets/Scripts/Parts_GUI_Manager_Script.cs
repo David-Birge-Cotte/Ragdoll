@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Parts_GUI_Manager_Script : MonoBehaviour {
 
+    public GameObject[] Prefabs;
     public Sprite[] PartsSprites;
     public Button ButtonPrefab;
     public GameObject Parent;
@@ -13,6 +14,11 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
     int NumberOfParts;
     float ScreenHeight;
     float ScreenWidth;
+
+    //grab
+    [HideInInspector]
+    public bool AnObjectIsSelected = false;
+    GameObject SelectedObject;
 
 	// Use this for initialization
 	void Start()
@@ -44,6 +50,21 @@ public class Parts_GUI_Manager_Script : MonoBehaviour {
 
     public void GrabPart(int i) //parties du corps de 0 à i
     {
-        //faire la fonction drag and drop en fonction de i
+        SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SelectedObject.GetComponent<BoxCollider2D>().enabled = false;
+        AnObjectIsSelected = true;
+
+    }
+
+    void Update()
+    {
+        if (AnObjectIsSelected == true)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = new Vector3(mousePos.x, mousePos.y, 10);
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            SelectedObject.transform.position = mousePos;
+        }
+        
     }
 }

@@ -188,10 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PartsSprites:
-  - {fileID: 21300000, guid: 88d721464bf4d6b468f68d8714f26f1c, type: 3}
-  - {fileID: 21300000, guid: 86f07a9de2c5e90499563be101a9c734, type: 3}
-  - {fileID: 21300000, guid: 7794cd0016eaf5a43a24075f90721ff7, type: 3}
-  - {fileID: 21300000, guid: e0393715c945c5c4b9532b1b2eec935b, type: 3}
+  - {fileID: 21300000, guid: 8d233cb5ecf15dd46b9d8a8ca07d41ae, type: 3}
+  - {fileID: 21300000, guid: 06000d1786bb8eb43bbca2c6e0516add, type: 3}
+  - {fileID: 21300000, guid: 6323a905476d0d14daf9fc678967f2b1, type: 3}
+  - {fileID: 21300000, guid: 66858c07e013e39409117d3359e87e4e, type: 3}
   ButtonPrefab: {fileID: 11410100, guid: 149fd211ea1d63b48878bf1a16a50445, type: 2}
   Parent: {fileID: 1114958752}
 --- !u!4 &701021629
