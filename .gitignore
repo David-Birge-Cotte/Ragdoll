@@ -37,3 +37,7 @@ Assets/Scenes/Main.unity
 Assets/Scripts/ArmBehavior.cs
 Assets/Scripts/ArmBehavior.cs
 Assets/Scripts/ArmBehavior.cs
+*.meta
+Assets/Art/Base pack (360 assets)/Player/p1_walk.meta
+Assets/Art/Base pack (360 assets)/Player/p1_walk.meta~HEAD
+Assets/Art/Base pack (360 assets)/Player/p1_walk.meta~HEAD.meta
