@@ -49,7 +49,7 @@ public class _Manager : MonoBehaviour {
 	public void GoToEditor()
 	{
 		Destroy( player );
-		//inGamePanel.SetActive(false);
+		Time.timeScale = 1;
 		Application.LoadLevel("CharacterCreation");
 	}
 

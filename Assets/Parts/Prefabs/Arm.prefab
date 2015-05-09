@@ -256,7 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 113226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f6cbc24d1ef414abab1653f4715493, type: 3}
+  m_Script: {fileID: 11500000, guid: 88a837e88ced35d4fb96e13545e078ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11442448
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 120570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e19897fc40c2c24db4371de9f8c30fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 180822460d72e464f8473e0272deebd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21214052
@@ -331,7 +331,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e0401b8597bedd54cb4e42b2fe1fd5ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d92fc1b6e95702841b937ad1b9772ab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

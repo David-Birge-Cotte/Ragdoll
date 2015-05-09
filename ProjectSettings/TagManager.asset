@@ -3,8 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - platform
+  - ADN
+  - pivot
+  - Collectible
+  - EndLevel
   layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
   - 
   - 
   - 
@@ -31,10 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  m_SortingLayers: []
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
