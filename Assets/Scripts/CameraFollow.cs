@@ -3,8 +3,14 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-	public GameObject target;
+	private GameObject target;
 	public Vector3 offset;
+
+
+	void Start(){
+		target = GameObject.Find("Player");
+	}
+
 
 	// Update is called once per frame
 	void Update () {
