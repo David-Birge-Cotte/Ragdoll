@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a44c0ec559677843b0000744837404f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefabs: []
   PartsSprites:
   - {fileID: 21300000, guid: 8d233cb5ecf15dd46b9d8a8ca07d41ae, type: 3}
   - {fileID: 21300000, guid: 06000d1786bb8eb43bbca2c6e0516add, type: 3}
@@ -194,6 +195,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 66858c07e013e39409117d3359e87e4e, type: 3}
   ButtonPrefab: {fileID: 11410100, guid: 149fd211ea1d63b48878bf1a16a50445, type: 2}
   Parent: {fileID: 1114958752}
+  AnObjectIsSelected: 0
+  _LambsManager: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!4 &701021629
 Transform:
   m_ObjectHideFlags: 0
@@ -206,6 +210,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &758315728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 758315729}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &758315729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 758315728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1114958752
 GameObject:
   m_ObjectHideFlags: 0
