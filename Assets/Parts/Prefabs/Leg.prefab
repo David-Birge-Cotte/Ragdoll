@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 448458}
   - 50: {fileID: 5070100}
   - 114: {fileID: 11419074}
+  - 114: {fileID: 11402650}
   m_Layer: 0
   m_Name: Leg
   m_TagString: Untagged
@@ -203,6 +204,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .25999999, y: 2.45000005}
+--- !u!114 &11402650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e08a88d09bf314dab5b80170357296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11419074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleMin: -10
   angleMax: 15
+  offset: {x: 0, y: 0, z: 0}
   piston: {fileID: 129792}
   foot: {fileID: 169520}
   IsOnFloor: 0

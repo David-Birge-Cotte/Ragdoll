@@ -528,7 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 120570, guid: a9ea28881fef20e459769102264df245, type: 2}
-  - {fileID: 0}
+  - {fileID: 163788, guid: 7d53c497fabc2f44db79a34b4c8408ce, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   PartsSprites:
