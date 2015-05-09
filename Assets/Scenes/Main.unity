@@ -508,7 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b3a226d7bad7c40b7fbccf231cc32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DroiteOuGauche: 1
 --- !u!1001 &1143402967
 Prefab:
   m_ObjectHideFlags: 0
@@ -605,7 +604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b3a226d7bad7c40b7fbccf231cc32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DroiteOuGauche: 0
 --- !u!61 &1236624024
 BoxCollider2D:
   m_ObjectHideFlags: 0

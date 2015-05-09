@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,7 +25,7 @@ public class LambsManager : MonoBehaviour
 		{
 			if( Input.GetKeyDown(KeyCode.W) ) 
 			{
-
+				GameObject.Instantiate( selectedLamb, pivots[ 0 ].transform.position, pivots[ 0 ].transform.rotation );
 			}			
 		}
 	}
