@@ -8,7 +8,10 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     public GameObject[] Prefabs;
     public Sprite[] PartsSprites;
     public Button ButtonPrefab;
+    Button[] Binds;
+    int BindNumber = 0;
     public GameObject Parent;
+    public GameObject BindPrefab;
     float n;
     float ButtonScale;
     float x;
@@ -87,6 +90,19 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 			Destroy( SelectedObject );
 			return;
 		}
+
+        Binds[BindNumber] = Instantiate(BindPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Button;
+        Binds[BindNumber].transform.SetParent(Parent.transform, false);
+
+        Debug.Log("World to point" + Camera.main.WorldToScreenPoint(SelectedObject.transform.position));
+
+        Binds[BindNumber].GetComponent<RectTransform>().anchoredPosition = new Vector2(Camera.main.WorldToScreenPoint(SelectedObject.transform.position).x - ScreenWidth / 2, Camera.main.WorldToScreenPoint(SelectedObject.transform.position).y - ScreenHeight / 2);
+        Debug.Log("RectTransform" + (Binds[BindNumber].GetComponent<RectTransform>().anchoredPosition + new Vector2(ScreenWidth / 2, ScreenHeight / 2)));
+        Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3(ButtonScale / 2, ButtonScale / 2, 1);
+        Binds[BindNumber].GetComponent<BindToLamb>().SerialNumber = BindNumber;
+        Binds[BindNumber].GetComponent<BindToLamb>().LinkedObject = SelectedObject;
+        BindNumber++;
+
 
         pivotTransform.GetComponent<AudioSource>().Play();
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
