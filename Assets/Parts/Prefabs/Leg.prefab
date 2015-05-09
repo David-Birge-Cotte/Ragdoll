@@ -232,10 +232,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleMin: -10
   angleMax: 15
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: .100000001, z: 0}
+  speedExtend: 12
+  speedRetract: 20
+  speedRetractPivot: 10
   piston: {fileID: 129792}
   foot: {fileID: 169520}
   IsOnFloor: 0
+  maxYPiston: 1.79999995
 --- !u!114 &11428596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 163788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfcf61fba2b7ea499d689a3c14b0315, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e19897fc40c2c24db4371de9f8c30fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   disableColliderOnDrop: 0

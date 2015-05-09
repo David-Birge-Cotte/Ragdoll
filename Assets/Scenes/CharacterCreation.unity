@@ -87,6 +87,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &138895086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 186710, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 138895088}
+  - 58: {fileID: 138895087}
+  m_Layer: 0
+  m_Name: PivotRight
+  m_TagString: Pivot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!58 &138895087
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5863260, guid: 50ccad16dd6d45f4e8185157ea164411,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138895086}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
+--- !u!4 &138895088
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 452120, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138895086}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
+  m_LocalPosition: {x: 1.69000006, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 460883408}
+  m_RootOrder: 3
 --- !u!1001 &369252946
 Prefab:
   m_ObjectHideFlags: 0
@@ -226,6 +268,10 @@ RectTransform:
 --- !u!1 &460883407 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 148446, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
+  m_PrefabInternal: {fileID: 369252946}
+--- !u!4 &460883408 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 456234, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
   m_PrefabInternal: {fileID: 369252946}
 --- !u!1 &1065893576
 GameObject:
@@ -448,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 5
 --- !u!4 &1338270417
 Transform:
@@ -648,3 +694,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6698a66c6fd2a4a956ac1f9358a1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 460883407}
+  startPos: {x: 0, y: 10, z: 0}
