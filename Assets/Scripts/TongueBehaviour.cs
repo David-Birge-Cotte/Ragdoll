@@ -1,42 +1,45 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
-public class TongueBehaviour : MonoBehaviour {
+public class TongueBehaviour : Lamb {
 
-	//public GameObject poids;
+	public GameObject head, cou;
+	public Sprite[] mouths;
 
-	bool throwed, collided;
+	public bool throwed, collided;
 
-	int counter = 0;
-	float distance;
+	float distance, velocityF;
+	Vector3 velocity;
 
 	RaycastHit2D hit;
 
 	void Update ()
 	{
-		Debug.DrawRay( transform.position, transform.right );
+		Debug.DrawRay( transform.position, transform.up );
 
 		if( Input.GetKeyDown(KeyCode.Z) )
 		{
-			if( !throwed )
+			if( !throwed && !collided )
 			{
-				hit = Physics2D.Raycast( transform.position, transform.right );
-				if( hit.collider != null && hit.collider.tag == "platform" )
-				{
-					/*GetComponent<SliderJoint2D>().connectedAnchor = (Vector2)hit.point;
-					GetComponent<SliderJoint2D>().enabled = true;*/
-					throwed = true;
-					Debug.Log("begin");
-				}
+				throwed = true;
+				head.GetComponent<SpriteRenderer>().sprite = mouths[1];
+				Debug.Log("begin");
 			}
 		}
 		else if( Input.GetKeyUp(KeyCode.Z) )
 		{
 			if( throwed && !collided )
 			{
+				head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 				collided = true;
 				Debug.Log("collided");
+			}
+			else if( !throwed )
+			{
+				GetComponent<DistanceJoint2D>().enabled = false;
+				throwed = false;
+				collided = false;
+				hit = new RaycastHit2D();
+				Debug.Log("end");
 			}
 		}
 
@@ -44,110 +47,69 @@ public class TongueBehaviour : MonoBehaviour {
 		{
 			if( !collided )
 			{
-				hit = Physics2D.Raycast( transform.position, transform.right );
+				head.transform.localPosition += new Vector3(0,0.5f);
+				cou.transform.localPosition += new Vector3(0,0.25f);
+				cou.transform.localScale += new Vector3(0,0.4f);
+				/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
+				cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
+				cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,4), ref velocity, 0.3f );*/
+
+				hit = Physics2D.Raycast( transform.position, transform.up );
 				if( hit.collider != null && hit.collider.tag == "platform" )
 				{
-					distance = Vector3.Distance( transform.position, hit.point );
-
-					if( distance < 0.2f )
-						return;
-					
-					if( counter/20 < distance && counter < 40 )
+					distance = Vector3.Distance( transform.position, hit.point )/0.3f;
+					//Debug.Log( distance);
+					if( distance > 10 )
 					{
-						counter += 2;
-						transform.localScale += new Vector3(0.1f,0);
-					}
-					else
-					{
+						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
+						Debug.Log("collided");
+					}
+					else if( head.transform.localPosition.y > distance )
+					{
+						GetComponent<DistanceJoint2D>().connectedAnchor = (Vector2)hit.point;
+						GetComponent<DistanceJoint2D>().enabled = true;
 
-						if( counter < 40 )
-						{
-							GetComponent<HingeJoint2D>().connectedAnchor = (Vector2)hit.point;
-							GetComponent<HingeJoint2D>().enabled = true;
-							//GetComponent<SliderJoint2D>().enabled = false;
-						}
+						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
+						collided = true;
 						Debug.Log("collided");
 					}
 				}
-				else
+				else if( head.transform.localPosition.y > 20 )
+				{
+					head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 					collided = true;
+					Debug.Log("collided");
+				}
 			}
 			else
 			{
-				if( counter > 0 )
+				if( head.transform.localPosition.y > 2.3f )
 				{
-					counter--;
-					transform.localScale -= new Vector3(0.05f,0);
+					/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,2.2f), ref velocity, 0.3f );
+					cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, Vector3.zero, ref velocity, 0.3f );
+					cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,1.5f), ref velocity, 0.3f );*/
+					GetComponent<DistanceJoint2D>().distance = Mathf.SmoothDamp( GetComponent<DistanceJoint2D>().distance, 0, ref velocityF, 0.3f );
+
+					head.transform.localPosition -= new Vector3(0,0.5f);
+					cou.transform.localPosition -= new Vector3(0,0.25f);
+					cou.transform.localScale -= new Vector3(0,0.4f);
+					//GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
 				}
-				else
+				else if( !Input.GetKey(KeyCode.Z) )
 				{
-					collided = false;
+					GetComponent<DistanceJoint2D>().enabled = false;
 					throwed = false;
-					GetComponent<HingeJoint2D>().enabled = false;
+					collided = false;
 					hit = new RaycastHit2D();
 					Debug.Log("end");
 				}
-			}
-		}
-	}
-
-	void DestroyPoids()
-	{
-		GetComponent<HingeJoint2D>().enabled = false;
-		Destroy( GetComponent<HingeJoint2D>().connectedBody.gameObject );
-	}
-
-	/*void Do()
-	{
-		if( !collided )
-		{
-			if( counter < 10 )
-			{
-				lastObj = (GameObject)Instantiate( objPrefab, transform.TransformPoint( new Vector3( -0.3f,0) ), transform.rotation );
-				lastObj.transform.parent = transform;
-
-				if( counter == 0 )
-					lastObj.GetComponent<HingeJoint2D>().connectedBody = tongue.GetComponent<Rigidbody2D>();
-				else if( counter > 0 )
-					lastObj.GetComponent<HingeJoint2D>().connectedBody = objs[ objs.Count-1 ].GetComponent<Rigidbody2D>();
-
-				if( counter == 9 )
+				else
 				{
-					GetComponent<HingeJoint2D>().enabled = true;
-					GetComponent<HingeJoint2D>().connectedBody = lastObj.GetComponent<Rigidbody2D>();
+					throwed = false;
+					collided = false;
 				}
-				
-				lastObj.GetComponent<HingeJoint2D>().anchor = new Vector2(-0.35f,0);
-				lastObj.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0.35f,0);
-				//tongue.GetComponent<HingeJoint2D>().connectedBody = lastObj.GetComponent<Rigidbody2D>();
-				//Debug.Log( objs[ objs.Count-1 ].name );
-				objs.Add( lastObj );
-				counter++;
-			}
-			else
-			{
-				collided = true;
-				tongue.GetComponent<SliderJoint2D>().useMotor = false;
 			}
 		}
-		else
-		{
-			if( counter > 0 )
-			{
-				counter--;
-				Destroy( objs[0] );
-				objs.RemoveAt(0);
-			}
-			else
-			{
-				tongue.GetComponent<SliderJoint2D>().enabled = false;
-				GetComponent<HingeJoint2D>().enabled = true;
-				GetComponent<HingeJoint2D>().connectedBody = tongue.GetComponent<Rigidbody2D>();
-				collided = false;
-				throwed = false;
-				CancelInvoke( "Do" );
-			}
-		}
-	}*/
+	}
 }
