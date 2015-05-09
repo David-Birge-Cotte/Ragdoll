@@ -11,7 +11,7 @@ public class LegBehavior : MonoBehaviour {
 	void Start () 
 	{
 		m_scale = transform.localScale;
-		m_newScale = new Vector3(m_scale.x, m_scale.y * 3, m_scale.z);
+		m_newScale = new Vector3(m_scale.x * 3, m_scale.y, m_scale.z);
 
 	
 	}
