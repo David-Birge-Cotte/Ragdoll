@@ -8,19 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 16995157, guid: 47e5b2ccf6e7df449a2d1bbc2d5e3e7f, type: 3}
+  m_Script: {fileID: -591303064, guid: eccac1b4e6efe4e499814e5ec54e00e8, type: 3}
   m_Name: DOTweenSettings
   m_EditorClassIdentifier: 
-  useSafeMode: 1
-  showUnityEditorReport: 0
-  logBehaviour: 2
-  defaultRecyclable: 0
-  defaultAutoPlay: 3
-  defaultUpdateType: 0
-  defaultTimeScaleIndependent: 0
-  defaultEaseType: 6
-  defaultEaseOvershootOrAmplitude: 1.70158005
-  defaultEasePeriod: 0
-  defaultAutoKill: 1
-  defaultLoopType: 0
-  storeSettingsLocation: 0
+  inspectorUpdater: 0

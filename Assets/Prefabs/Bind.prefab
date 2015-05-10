@@ -79,12 +79,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 112086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a7a53dc10c82b4a91ff7bdd44fd8f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f768ef5b67cbe7549a9ef9cdf21aba86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedObject: {fileID: 0}
-  inputTxt: {fileID: 11411032}
-  placeHoler: {fileID: 11481506}
+  inputTxt: {fileID: 0}
+  placeHoler: {fileID: 0}
 --- !u!114 &11411032
 MonoBehaviour:
   m_ObjectHideFlags: 1
