@@ -4,12 +4,18 @@ using DG.Tweening;
 
 public class PivotTrigger : MonoBehaviour {
 
-    private GameObject UIManager;
-    private GameObject pivotToBeAttached;
+    GameObject UIManager;
+    GameObject pivotToBeAttached;
 	// Use this for initialization
 	void Start () 
     {
-	   UIManager = GameObject.Find("UIManager");
+		UIManager = GameObject.Find("UIManager");
+		Debug.Log( UIManager.name );
+	}
+
+	void Reset () 
+	{
+		UIManager = GameObject.Find("UIManager");
 	}
 	
 	// Update is called once per frame
