@@ -21,7 +21,7 @@ public class LegBehavior_2 : Lamb {
 
 	void Start()
 	{
-		player = GameObject.Find("Player");
+		player = GameObject.FindWithTag("Player");
 		userKey = "c";
 	}
 
