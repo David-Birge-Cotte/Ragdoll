@@ -74,8 +74,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
         }
 
         for (int i = 0; i < PlayerPrefs.GetInt("currentBrains"); i++)
-        {
-            player.transform.GetChild(i).gameObject.SetActive(true);
+		{
+			player.transform.GetChild(i).gameObject.SetActive(true);
         }
     }
 

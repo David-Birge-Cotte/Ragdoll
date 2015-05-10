@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &192000
 GameObject:
   m_ObjectHideFlags: 1
@@ -1364,7 +1364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 161528, guid: 22b278342acef094b857686bfaddc61f, type: 2}
-  initialPlayerPos: {x: 0, y: 0, z: 0}
 --- !u!212 &21211038
 SpriteRenderer:
   m_ObjectHideFlags: 1

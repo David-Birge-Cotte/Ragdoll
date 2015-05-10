@@ -437,7 +437,7 @@ MonoBehaviour:
   speedExtend: 12
   speedRetract: 20
   speedRetractPivot: 10
-  impulseForce: 2500
+  impulseForce: 3500
   piston: {fileID: 129792}
   foot: {fileID: 169520}
   IsOnFloor: 0

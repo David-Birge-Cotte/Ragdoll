@@ -57,9 +57,5 @@ public class PlayerManager : MonoBehaviour
             FindObjectOfType<_Manager>().AddBrain(collider.gameObject);
             collider.enabled = false;
 		}
-		else if (collider.tag == "Checkpoint")
-		{
-			collider.GetComponent<Animator>().speed = 1;
-		}
     }
 }
