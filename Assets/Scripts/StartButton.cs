@@ -38,6 +38,6 @@ public class StartButton : MonoBehaviour
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			Destroy( ps );
 
-        Application.LoadLevel(2);
+        Application.LoadLevel(3);
 	}
 }

@@ -19,7 +19,7 @@ public class resetButton : MonoBehaviour {
 
     public void ResetStats()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         Destroy(GameObject.FindWithTag("Player"));
         Application.LoadLevel(Application.loadedLevel);
     }
