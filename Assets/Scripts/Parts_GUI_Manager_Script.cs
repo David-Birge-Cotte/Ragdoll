@@ -19,7 +19,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     //grab
     public GameObject SelectedObject;
-    public GameObject player;
+    public GameObject playerPrefab;
+    private GameObject player;
 
 
     public GameObject brainValue;
@@ -33,7 +34,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 	void Start()
     { 
 		if( GameObject.FindWithTag("Player") == null )
-			player = (GameObject)Instantiate(player);
+            player = (GameObject)Instantiate(playerPrefab);
         //Debug.Log(player.name);
 
 		Binds = new GameObject[100];
@@ -93,8 +94,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
             ButtonArray[i].GetComponent<Image>().sprite = PartsSprites[i];
             ButtonArray[i].GetComponent<ButtonScript>().SerialNumber = i;
         }
-        FindObjectOfType<StartButton>().transform.localPosition = new Vector3(-1000, FindObjectOfType<StartButton>().transform.localPosition.y, 0);
-        FindObjectOfType<StartButton>().transform.DOLocalMoveX(0, 1).SetEase(Ease.OutBack);
+        FindObjectOfType<StartButton>().transform.DOMoveY(30, 3).SetEase(Ease.OutCubic);
     }
 
     public void GrabPart(int i) //parties du corps de 0 à i
@@ -108,6 +108,9 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     void Update()
     {
+        if (GameObject.FindWithTag("Player") == null)
+            player = (GameObject)Instantiate(playerPrefab);
+
         if (SelectedObject != null)
         {
             Vector3 mousePos = Input.mousePosition;

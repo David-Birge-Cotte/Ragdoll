@@ -82,6 +82,7 @@ public class _Manager : MonoBehaviour {
 
     public void AddBrain( GameObject brain )
     {
+		brain.GetComponent<AudioSource>().Play();
         int id = brain.GetComponent<Brain>().id;
         char[] save = PlayerPrefs.GetString("brains").ToCharArray();
         save[id] = '0';

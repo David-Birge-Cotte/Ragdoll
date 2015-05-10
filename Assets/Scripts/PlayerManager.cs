@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-    	transform.position = new Vector3(2, -5, 0);
+    	transform.position = new Vector3(0, 4, 0);
         DontRecreate = true;
         transform.DOMoveY(0, 3).SetEase(Ease.OutElastic);
     }

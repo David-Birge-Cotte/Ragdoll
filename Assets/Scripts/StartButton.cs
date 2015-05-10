@@ -19,12 +19,25 @@ public class StartButton : MonoBehaviour
 
     public void LoadLevel()
 	{
-		transform.DOMoveX(2000, 1).SetEase(Ease.InBack);
+        AnimStartButton();
+        AnimLimbButton();
+        AnimPlayer();
+    }
+
+    void AnimStartButton()
+    {
+        transform.DOMoveY(-150, 3).SetEase(Ease.OutCubic).OnStepComplete(goToNextLevel);
+    }
+    void AnimLimbButton()
+    {
         FindObjectsOfType<ButtonScript>()[0].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
         FindObjectsOfType<ButtonScript>()[1].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
         FindObjectsOfType<ButtonScript>()[2].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
+    }
+    void AnimPlayer()
+    {
         GameObject.FindWithTag("Player").transform.DOKill();
-        GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
+        GameObject.FindWithTag("Player").transform.DOMoveY(10, 1.0f).SetEase(Ease.InBack);
     }
 
 	void goToNextLevel()
