@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class _Manager : MonoBehaviour {
     
-	public Text ADNText, soundButton;
+	public Text ADNText, soundButton, CerveauText;
 	public GameObject pausePanel, inGamePanel;
 
     private int maxBrain;
