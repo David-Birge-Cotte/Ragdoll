@@ -32,6 +32,9 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 	// Use this for initialization
 	void Start()
     { 
+		if( GameObject.FindWithTag("Player") == null )
+			player = Instantiate(player);
+
 		Binds = new GameObject[100];
         SpawnUI();
 

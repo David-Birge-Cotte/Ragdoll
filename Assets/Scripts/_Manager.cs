@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class _Manager : MonoBehaviour {
     
-	public Text ADNText, soundButton;
+	public Text ADNText, soundButton, CerveauText;
 	public GameObject pausePanel, inGamePanel;
 
     private int maxBrain;
@@ -85,16 +85,15 @@ public class _Manager : MonoBehaviour {
         PlayerPrefs.SetInt("currentBrains", PlayerPrefs.GetInt("currentBrains") + 1);
         brain.GetComponent<SpriteRenderer>().sortingOrder = 99;
         brain.transform.DOMove( Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f,1)), 3 );
-        brain.transform.DOScale(Vector3.one * 3, 3).OnComplete(() => { Application.LoadLevel(0); });
-        Destroy(player);
+		brain.transform.DOScale(Vector3.one * 3, 3).OnComplete(AddBrainComplete);
+		//brain.transform.DOScale(Vector3.one * 3, 3).OnComplete(() => { Application.LoadLevel(0); });
+        //Destroy(player);
 	}
-	/*void AddBrainComplete()
+	void AddBrainComplete()
 	{
+		RespawnPlayerInEditor();
 		Application.LoadLevel(0);
-		player.GetComponent<Rigidbody2D>().isKinematic = true;
-		player.transform.position = Vector3.zero;
-		player.transform.rotation = Quaternion.identity;
-	}*/
+	}
 
 	public void RestartLevel()
 	{
@@ -115,10 +114,7 @@ public class _Manager : MonoBehaviour {
 
 	public void GoToEditor()
 	{
-		/*player.GetComponent<Rigidbody2D>().isKinematic = true;
-		player.transform.position = Vector3.zero;
-		player.transform.rotation = Quaternion.identity;*/
-		Destroy(player);
+		RespawnPlayerInEditor();
 		Time.timeScale = 1;
 		Application.LoadLevel(0);
 	}
@@ -143,5 +139,27 @@ public class _Manager : MonoBehaviour {
 	public void QuitGame()
 	{
 		Application.Quit();
+	}
+
+	void RespawnPlayerInEditor()
+	{
+		foreach( PivotScript ps in FindObjectsOfType<PivotScript>() )
+		{
+			ps.enabled = true;
+			ps.GetComponent<SpriteRenderer>().enabled = true;
+		}
+		foreach( BindToLamb ps in FindObjectsOfType<BindToLamb>() )
+		{
+			ps.enabled = true;
+			ps.GetComponent<Canvas>().enabled = true;
+		}
+		foreach( PivotTrigger pt in FindObjectsOfType<PivotTrigger>() )
+			pt.enabled = true;
+		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
+			ps.enabled = true;
+		
+		player.GetComponent<Rigidbody2D>().isKinematic = true;
+		player.transform.position = Vector3.zero;
+		player.transform.rotation = Quaternion.identity;
 	}
 }

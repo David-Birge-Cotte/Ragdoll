@@ -27,6 +27,6 @@ public class HomeScreen : MonoBehaviour {
 	}
 	public void GoToEditor()
 	{
-		Application.LoadLevel(1);
+		Application.LoadLevel(0);
 	}
 }

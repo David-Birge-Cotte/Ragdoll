@@ -43,7 +43,7 @@ MonoBehaviour:
   Parent: {fileID: 0}
   BindPrefab: {fileID: 112086, guid: f02b1962ae926ad49a343ea68b406843, type: 2}
   SelectedObject: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 148446, guid: 50ccad16dd6d45f4e8185157ea164411, type: 2}
   brainValue: {fileID: 0}
   ADNValue: {fileID: 0}
   LimbValue: {fileID: 0}
