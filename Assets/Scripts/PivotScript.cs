@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PivotScript : MonoBehaviour {
 
+	public bool isDisable;
+
 	// Use this for initialization
 	void Start () {
 	

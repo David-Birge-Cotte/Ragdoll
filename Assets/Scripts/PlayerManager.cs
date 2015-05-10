@@ -4,7 +4,8 @@ using DG.Tweening;
 public class PlayerManager : MonoBehaviour 
 {
 	public GameObject particlePrefab;
-    bool DontRecreate;
+	bool DontRecreate;
+	public Vector3 initialPlayerPos;
 
     void Awake()
     {

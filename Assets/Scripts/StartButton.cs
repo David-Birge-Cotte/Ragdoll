@@ -31,8 +31,11 @@ public class StartButton : MonoBehaviour
 	{
 		foreach( PivotScript ps in FindObjectsOfType<PivotScript>() )
 		{
+			if( ps.GetComponent<SpriteRenderer>().enabled )
+				ps.GetComponent<SpriteRenderer>().enabled = false;
+			else
+				ps.isDisable = true;
 			ps.enabled = false;
-			ps.GetComponent<SpriteRenderer>().enabled = false;
 		}
 		foreach( BindToLamb ps in FindObjectsOfType<BindToLamb>() )
 		{
@@ -40,7 +43,7 @@ public class StartButton : MonoBehaviour
 			ps.GetComponent<Canvas>().enabled = false;
 		}
 		foreach( PivotTrigger pt in FindObjectsOfType<PivotTrigger>() )
-			pt.enabled = false;
+			Destroy( pt );
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			ps.enabled = false;
 
