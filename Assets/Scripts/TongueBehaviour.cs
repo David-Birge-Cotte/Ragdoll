@@ -46,7 +46,6 @@ public class TongueBehaviour : Lamb {
 				throwed = false;
 				collided = false;
 				hit = new RaycastHit2D();
-				Debug.Log("end");
 			}
 		}
 

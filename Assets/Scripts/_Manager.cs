@@ -1,36 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class _Manager : MonoBehaviour {
-
-	static int score;
-	int adnNbr;
-	public Text ScoreUI, soundButton;
+    
+	public Text ADNText, soundButton;
 	public GameObject pausePanel, inGamePanel;
 
-	GameObject player;
-	Vector3 initialPlayerPos;
-
+    private int maxBrain = 6;
+    private int maxADN;
+    private GameObject player;
+    public Vector3 initialPlayerPos;
 
 	void Start()
 	{
 		player = GameObject.Find("Player");
-		initialPlayerPos = player.transform.position;
+        player.transform.position = initialPlayerPos;
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
-		adnNbr = GameObject.FindGameObjectsWithTag("ADN").Length;
+		maxADN = GameObject.FindGameObjectsWithTag("ADN").Length;
 	}
 
 
 
-	public void AddScore () 
+	public void AddADN ()
 	{
-		score++;
-		ScoreUI.text = "Score : " + score + " / " + adnNbr;
+        PlayerPrefs.SetInt("currentADN", PlayerPrefs.GetInt("currentADN") + 1);
+        ADNText.text = PlayerPrefs.GetInt("currentADN") + " / " + maxADN;
 	}
+
+    public void AddBrain( GameObject brain )
+    {
+        PlayerPrefs.SetInt("currentBrains", PlayerPrefs.GetInt("currentBrains") + 1);
+        brain.transform.DOMoveY( brain.transform.position.y + 2, 1 ).SetEase(Ease.OutBounce).OnComplete( () => {
+            brain.transform.DOScale(Vector3.one * 10, 5).OnComplete(() => { Application.LoadLevel(0); });
+        });
+    }
 
 	public void RestartLevel()
 	{
-		Debug.Log("Restart level");
 		player.transform.position = initialPlayerPos;
 		Application.LoadLevel(Application.loadedLevel);
 	}
@@ -48,10 +55,9 @@ public class _Manager : MonoBehaviour {
 
 	public void GoToEditor()
 	{
-		PlayerPrefs.SetInt("Score", score );
 		Destroy( player );
 		Time.timeScale = 1;
-		Application.LoadLevel("CharacterCreation");
+		Application.LoadLevel(0);
 	}
 
 	bool soundActive = true;

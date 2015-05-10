@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class PivotTrigger : MonoBehaviour {
 
@@ -37,7 +38,7 @@ public class PivotTrigger : MonoBehaviour {
         if (col.tag == "Pivot")
         {
             pivotToBeAttached = col.gameObject;
-            col.GetComponentInChildren<PivotScript>().transform.localScale = new Vector3(2, 2, 1);
+            col.GetComponentInChildren<PivotScript>().transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuart);
         }
 
        
@@ -48,7 +49,7 @@ public class PivotTrigger : MonoBehaviour {
         if (col.tag == "Pivot")
         {
             pivotToBeAttached = null;
-            col.GetComponentInChildren<PivotScript>().transform.localScale = Vector3.one;
+            col.GetComponentInChildren<PivotScript>().transform.DOScale(Vector3.zero, 1f).SetEase(Ease.OutQuart);
         }
     }
 }

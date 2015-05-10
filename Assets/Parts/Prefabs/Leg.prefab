@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.30283165, y: -1.31310475, z: 0}
+  m_LocalPosition: {x: 3.83708048, y: -.50400126, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 425636}
@@ -169,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 135840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 444662}
   m_RootOrder: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   userKey: 
   SFX:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4e105a7d473eafd488fc289b21e99111, type: 3}
   speedExtend: 12
   speedRetract: 20
   speedRetractPivot: 10

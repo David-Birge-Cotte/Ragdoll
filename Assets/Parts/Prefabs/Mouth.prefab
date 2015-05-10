@@ -232,12 +232,13 @@ MonoBehaviour:
   angleMax: 15
   offset: {x: 0, y: -1.60000002, z: 0}
   userKey: 
-  SFX: []
+  SFX:
+  - {fileID: 8300000, guid: 00ef984133a548f4ba57726cf14ad9c0, type: 3}
   head: {fileID: 138662}
   cou: {fileID: 176152}
   mouths:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 74a42950769e7434a95859bf0d6f627b, type: 3}
+  - {fileID: 21300000, guid: 58a33e20e9e8e81418da3e10038d0ba0, type: 3}
   throwed: 0
   collided: 0
 --- !u!114 &11444110
@@ -275,7 +276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 79f1ca7e43d002341b6db6f76dd369ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56771cfc7513e654c97203c98296dc14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21248446
 SpriteRenderer:
@@ -301,7 +302,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eee115ae7d6029c4ca26e4a46211218a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e4adc8709920734bbd87c8dd45f2b10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21297110
 SpriteRenderer:
@@ -327,7 +328,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: ecb25f7734b3e53429db74719ca57c33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74a42950769e7434a95859bf0d6f627b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!232 &23267068
 DistanceJoint2D:

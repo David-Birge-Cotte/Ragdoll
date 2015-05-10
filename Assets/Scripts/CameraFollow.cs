@@ -8,13 +8,20 @@ public class CameraFollow : MonoBehaviour {
 	public float smoothiness = 0.2f;
 
 
-	void Start(){
+	void Start()
+    {
 		target = GameObject.Find("Player");
 	}
 
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        if(!target)
+        {
+            target = GameObject.Find("Player");
+            return;
+        }
 
 		Vector3 pos = new Vector3( target.transform.position.x, target.transform.position.y, -10);
 		// pos.y = 0;

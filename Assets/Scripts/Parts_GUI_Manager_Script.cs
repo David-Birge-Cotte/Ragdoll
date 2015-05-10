@@ -22,7 +22,12 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     public GameObject player;
 
 
-	public int memberLimit = 3;
+    public GameObject brainValue;
+    public GameObject ADNValue;
+    public GameObject LimbValue;
+    public int defaultNbPivots = 4;
+    public int defaultNbLimbs = 3;
+	private int nbCurrentLimb = 0;
 
 	// Use this for initialization
 	void Start()
@@ -30,13 +35,36 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 		Binds = new GameObject[100];
         SpawnUI();
 
-		if( PlayerPrefs.HasKey("Score") )
-		{
-			memberLimit += PlayerPrefs.GetInt("Score");
-		}
 		if( GameObject.Find("Player") == null )
 			player = (GameObject)Instantiate(player);
+
+        brainValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentBrains").ToString();
+        ADNValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentADN").ToString();
+
+        if (PlayerPrefs.GetInt("currentBrains") < defaultNbPivots)
+            PlayerPrefs.SetInt("currentBrains", defaultNbPivots);
+
+        if (PlayerPrefs.GetInt("maxLimbs") < defaultNbLimbs)
+            PlayerPrefs.SetInt("maxLimbs", defaultNbLimbs);
+
+        LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
+        InitLimbPivots();
 	}
+
+    void InitLimbPivots()
+    {
+        //active pivots == maxLimbsPivots
+
+        for (int i = 0; i < player.transform.childCount; i++)
+        {
+            player.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < PlayerPrefs.GetInt("currentBrains"); i++)
+        {
+            player.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
 
     public void SpawnUI()
     {
@@ -85,9 +113,10 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     public void DropObject( Transform pivotTransform )
     {        
-		if (pivotTransform.childCount > 1 || memberLimit == 0)
+		if (pivotTransform.childCount > 1 || nbCurrentLimb >= PlayerPrefs.GetInt("maxLimbs"))
 		{
-			Destroy( SelectedObject );
+            LimbValue.GetComponent<Text>().DOColor(Color.red, 0.5f).OnComplete(() => { LimbValue.GetComponent<Text>().DOColor(Color.white, 2.0f); });
+            Destroy(SelectedObject);
 			return;
 		}
 
@@ -96,11 +125,27 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 		Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3( 1, 1, 1);
         BindNumber++;
 
-
         pivotTransform.GetComponent<AudioSource>().Play();
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = false;
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
         SelectedObject = null;
-		memberLimit--;
+		nbCurrentLimb++;
+        LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
+    }
+    
+    public void AddLimbPivot( int price )
+    {
+        if ( PlayerPrefs.GetInt("currentADN") >= price )
+        {
+            PlayerPrefs.SetInt("currentADN", PlayerPrefs.GetInt("currentADN") - price);
+            PlayerPrefs.SetInt("maxLimbs", PlayerPrefs.GetInt("maxLimbs") + 1);
+            ADNValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentADN").ToString();
+            LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
+            InitLimbPivots();
+        }
+        else
+        {
+            ADNValue.GetComponent<Text>().DOColor(Color.red, 0.5f).OnComplete(() => { ADNValue.GetComponent<Text>().DOColor(Color.white, 2.0f); });
+        }
     }
 }

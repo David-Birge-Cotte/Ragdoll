@@ -37,8 +37,6 @@ public class StartButton : MonoBehaviour
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			Destroy( ps );
 
-        player.transform.position = startPos;
-        player.GetComponent<Rigidbody2D>().isKinematic = false;
         Application.LoadLevel(1);
 	}
 }
