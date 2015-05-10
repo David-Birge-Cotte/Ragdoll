@@ -5,7 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
 	public GameObject particlePrefab;
 	bool DontRecreate;
-	public Vector3 initialPlayerPos;
+	//public Vector3 initialPlayerPos;
 
     void Awake()
     {
@@ -17,10 +17,7 @@ public class PlayerManager : MonoBehaviour
 		{
 			foreach( AudioSource AS in FindObjectsOfType<AudioSource>() )
 			{
-				if( PlayerPrefs.GetInt("Sound") == 0 )
-					AS.mute = true;
-				else
-					AS.mute = false;
+				AS.mute = PlayerPrefs.GetInt ("Sound") == 0;
 			}
 		}
     }
@@ -59,7 +56,10 @@ public class PlayerManager : MonoBehaviour
         {
             FindObjectOfType<_Manager>().AddBrain(collider.gameObject);
             collider.enabled = false;
-        }
-
+		}
+		else if (collider.tag == "Checkpoint")
+		{
+			collider.GetComponent<Animator>().speed = 1;
+		}
     }
 }

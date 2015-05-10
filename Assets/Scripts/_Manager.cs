@@ -11,13 +11,20 @@ public class _Manager : MonoBehaviour {
     private int maxBrain;
     private int maxADN;
     private GameObject player;
-    public Vector3 initialPlayerPos;
+    //public Vector3 initialPlayerPos;
     public List<GameObject> brains;
 
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
-        player.transform.position = initialPlayerPos;
+       // player.transform.position = initialPlayerPos;
+
+		foreach( Checkpoint CP in FindObjectsOfType<Checkpoint>() )
+		{
+			if( CP.isActive )
+				player.transform.position = CP.transform.position;
+		}
+
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
         maxADN = GameObject.FindGameObjectsWithTag("ADN").Length;
         ADNText.text = PlayerPrefs.GetInt("currentADN") + " / " + maxADN;
@@ -98,7 +105,7 @@ public class _Manager : MonoBehaviour {
 
 	public void RestartLevel()
 	{
-		player.transform.position = initialPlayerPos;
+		//player.transform.position = initialPlayerPos;
 		Application.LoadLevel(Application.loadedLevel);
 	}
 
