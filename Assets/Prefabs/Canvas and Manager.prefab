@@ -86,7 +86,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &117956
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,11 +593,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ADNText: {fileID: 11460410}
-  soundButton: {fileID: 0}
+  soundButton: {fileID: 11496384}
   pausePanel: {fileID: 161420}
   inGamePanel: {fileID: 114898}
   initialPlayerPos: {x: 0, y: 10, z: 0}
   brains:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &11453138
@@ -1114,8 +1117,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -240.142853}
-  m_SizeDelta: {x: 1320, y: 180.285706}
+  m_AnchoredPosition: {x: 959.999939, y: -240.138458}
+  m_SizeDelta: {x: 1319.99988, y: 180.276917}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22426916
 RectTransform:
@@ -1244,8 +1247,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -640.714233}
-  m_SizeDelta: {x: 1320, y: 180.285706}
+  m_AnchoredPosition: {x: 959.999939, y: -640.692261}
+  m_SizeDelta: {x: 1319.99988, y: 180.276917}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22443416
 RectTransform:
@@ -1279,8 +1282,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -841}
-  m_SizeDelta: {x: 1320, y: 180.285706}
+  m_AnchoredPosition: {x: 959.999939, y: -840.969238}
+  m_SizeDelta: {x: 1319.99988, y: 180.276917}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22460920
 RectTransform:
@@ -1331,8 +1334,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -440.428558}
-  m_SizeDelta: {x: 1320, y: 180.285706}
+  m_AnchoredPosition: {x: 959.999939, y: -440.415375}
+  m_SizeDelta: {x: 1319.99988, y: 180.276917}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22490284
 RectTransform:

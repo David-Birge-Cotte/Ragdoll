@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class _Manager : MonoBehaviour {
-    
-	public Text ADNText, soundButton, CerveauText;
+
+    public Text ADNText, soundButton;
 	public GameObject pausePanel, inGamePanel;
 
     private int maxBrain;
@@ -51,6 +51,7 @@ public class _Manager : MonoBehaviour {
         //disable brains that has already been gained
         for (int i = 0; i < brains.Count; i++)
         {
+            Debug.Log(PlayerPrefs.GetString("brains"));
             if ( PlayerPrefs.GetString("brains")[i] == '0')
             {
                 brains[i].GetComponent<SpriteRenderer>().color = Color.gray;

@@ -65,7 +65,7 @@ public class TongueBehaviour : Lamb {
 				if( hit.collider != null /*&& hit.collider.tag == "Platform" */)
 				{
 					distance = Vector3.Distance( transform.localPosition, transform.InverseTransformPoint(hit.point) );
-					Debug.Log(distance+" "+head.transform.localPosition.y);
+                    //Debug.Log(distance+" "+head.transform.localPosition.y);
 					if( distance > 7 )
 					{
 						/*head.GetComponent<SpriteRenderer>().sprite = mouths[0];

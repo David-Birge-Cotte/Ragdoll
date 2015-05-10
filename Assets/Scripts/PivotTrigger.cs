@@ -15,6 +15,9 @@ public class PivotTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (!UIManager)
+            UIManager = GameObject.Find("UIManager");
+
         if ( UIManager.GetComponent<Parts_GUI_Manager_Script>().SelectedObject != gameObject )
             return;
 

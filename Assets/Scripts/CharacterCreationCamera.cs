@@ -13,7 +13,7 @@ public class CharacterCreationCamera : MonoBehaviour
 		if ( GetComponent<Camera>().orthographicSize - Input.GetAxis("Mouse ScrollWheel")  > 2 && GetComponent<Camera>().orthographicSize - Input.GetAxis("Mouse ScrollWheel") < 15)
 		{
 			GetComponent<Camera>().orthographicSize -= Input.GetAxis("Mouse ScrollWheel");
-			BG.transform.localScale = new Vector3(GetComponent<Camera>().orthographicSize * adaptation, GetComponent<Camera>().orthographicSize * adaptation, 1);
+            //BG.transform.localScale = new Vector3(GetComponent<Camera>().orthographicSize * adaptation, GetComponent<Camera>().orthographicSize * adaptation, 1);
 
 
 		}

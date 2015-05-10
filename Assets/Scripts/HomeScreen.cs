@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HomeScreen : MonoBehaviour {
 
-	public Text start;
+	public Text startText;
 	public GameObject restart;
 
 	// Use this for initialization
@@ -11,7 +11,7 @@ public class HomeScreen : MonoBehaviour {
 	{
 		if (PlayerPrefs.HasKey("brains"))
 		{
-			start.text = "Continue";
+            startText.text = "Continue";
 			restart.SetActive(true);
 		}
 	}
