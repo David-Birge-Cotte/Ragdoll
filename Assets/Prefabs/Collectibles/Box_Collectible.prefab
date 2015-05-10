@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21210694}
   - 61: {fileID: 6128454}
   - 50: {fileID: 5016170}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Box_Collectible
   m_TagString: Collectible
   m_Icon: {fileID: 0}

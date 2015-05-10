@@ -26,25 +26,25 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-    	transform.position = new Vector3(0, -5, 0);
+    	transform.position = new Vector3(2, -5, 0);
         DontRecreate = true;
         transform.DOMoveY(0, 3).SetEase(Ease.OutElastic);
     }
 
-	void OnCollisionEnter2D(Collision2D collision)
+	/*void OnCollisionEnter2D(Collision2D collision)
 	{
-        //if( GetComponent<Rigidbody2D>().velocity.magnitude < 0.2)
-        //{
-        //    for (int i = 0; i < Random.Range(5, 10); i++)
-        //    {
-        //        Vector3 pos = collision.contacts[0].point;
-        //        GameObject particle = (GameObject)Instantiate(particlePrefab, pos, Quaternion.identity);
-        //        particle.GetComponent<Rigidbody2D>().AddTorque(1, ForceMode2D.Impulse);
-        //        particle.GetComponent<Rigidbody2D>().AddForce(new Vector2( -5 + Random.value * 10, Random.value * 10) , ForceMode2D.Impulse);
-        //    }
-        //}
+        if( GetComponent<Rigidbody2D>().velocity.magnitude < 0.2)
+        {
+            for (int i = 0; i < Random.Range(5, 10); i++)
+            {
+                Vector3 pos = collision.contacts[0].point;
+                GameObject particle = (GameObject)Instantiate(particlePrefab, pos, Quaternion.identity);
+                particle.GetComponent<Rigidbody2D>().AddTorque(1, ForceMode2D.Impulse);
+                particle.GetComponent<Rigidbody2D>().AddForce(new Vector2( -5 + Random.value * 10, Random.value * 10) , ForceMode2D.Impulse);
+            }
+        }
 
-	}
+	}*/
 
     void OnTriggerEnter2D( Collider2D collider )
     {

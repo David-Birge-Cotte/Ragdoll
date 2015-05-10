@@ -43,8 +43,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
                 Camera.main.GetComponent<AudioSource>().mute = false;
         }
 
-		if( GameObject.Find("Player") == null )
-			player = (GameObject)Instantiate(player);
+		/*if( GameObject.FindWithTag("Player") == null )
+			player = (GameObject)Instantiate(player);*/
 
         if (PlayerPrefs.GetInt("currentBrains") < defaultNbPivots)
             PlayerPrefs.SetInt("currentBrains", defaultNbPivots);

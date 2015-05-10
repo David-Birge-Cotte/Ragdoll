@@ -19,7 +19,7 @@ public class TongueBehaviour : Lamb {
 
 	void Update ()
 	{
-		Debug.DrawRay( transform.position, transform.up );
+		Debug.DrawRay( head.transform.position, transform.up );
 
 		if( Input.GetKeyDown(userKey) )
 		{
@@ -38,7 +38,7 @@ public class TongueBehaviour : Lamb {
 			{
 				head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 				collided = true;
-				Debug.Log("collided");
+				Debug.Log("key release");
 			}
 			else if( !throwed )
 			{
@@ -46,6 +46,7 @@ public class TongueBehaviour : Lamb {
 				throwed = false;
 				collided = false;
 				hit = new RaycastHit2D();
+				Debug.Log("end key release");
 			}
 		}
 
@@ -53,23 +54,23 @@ public class TongueBehaviour : Lamb {
 		{
 			if( !collided )
 			{
-				head.transform.localPosition += new Vector3(0,0.5f);
-				cou.transform.localPosition += new Vector3(0,0.25f);
-				cou.transform.localScale += new Vector3(0,0.4f);
+				head.transform.localPosition += new Vector3(0,0.3f);
+				cou.transform.localPosition += new Vector3(0,0.16f);
+				cou.transform.localScale += new Vector3(0,0.24f);
 				/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
 				cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
 				cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,4), ref velocity, 0.3f );*/
 
-				hit = Physics2D.Raycast( transform.position, transform.up );
-				if( hit.collider != null && hit.collider.tag == "platform" )
+				hit = Physics2D.Raycast( head.transform.position, transform.up );
+				if( hit.collider != null /*&& hit.collider.tag == "Platform" */)
 				{
-					distance = Vector3.Distance( transform.position, hit.point )/0.3f;
-					//Debug.Log( distance);
-					if( distance > 10 )
+					distance = Vector3.Distance( transform.localPosition, transform.InverseTransformPoint(hit.point) );
+					Debug.Log(distance+" "+head.transform.localPosition.y);
+					if( distance > 7 )
 					{
 						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
-						Debug.Log("collided");
+						Debug.Log("too long "+distance);
 					}
 					else if( head.transform.localPosition.y > distance )
 					{
@@ -78,31 +79,38 @@ public class TongueBehaviour : Lamb {
 
 						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
-						Debug.Log("collided");
+						//GetComponent<AudioSource>().PlayOneShot(SFX[1]);
+						Debug.Log("true collided");
 					}
+					/*else
+					{
+						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
+						collided = true;
+						GetComponent<AudioSource>().PlayOneShot(SFX[0]);
+					}*/
 				}
-				else if( head.transform.localPosition.y > 20 )
+				else if( head.transform.localPosition.y > 12 )
 				{
 					head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 					collided = true;
-					Debug.Log("collided");
+					Debug.Log("not collided");
 				}
 			}
 			else
 			{
-				if( head.transform.localPosition.y > 2.3f )
+				if( head.transform.localPosition.y > 0.4f )
 				{
 					/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,2.2f), ref velocity, 0.3f );
 					cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, Vector3.zero, ref velocity, 0.3f );
 					cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,1.5f), ref velocity, 0.3f );*/
 					GetComponent<DistanceJoint2D>().distance = Mathf.SmoothDamp( GetComponent<DistanceJoint2D>().distance, 0, ref velocityF, 0.3f );
 
-					head.transform.localPosition -= new Vector3(0,0.5f);
-					cou.transform.localPosition -= new Vector3(0,0.25f);
-					cou.transform.localScale -= new Vector3(0,0.4f);
+					head.transform.localPosition -= new Vector3(0,0.3f);
+					cou.transform.localPosition -= new Vector3(0,0.16f);
+					cou.transform.localScale -= new Vector3(0,0.24f);
 					//GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
 				}
-				else if( !Input.GetKey(KeyCode.Z) )
+				else if( !Input.GetKey(userKey) )
 				{
 					GetComponent<DistanceJoint2D>().enabled = false;
 					throwed = false;
@@ -110,11 +118,11 @@ public class TongueBehaviour : Lamb {
 					hit = new RaycastHit2D();
 					Debug.Log("end");
 				}
-				else
+				/*else
 				{
 					throwed = false;
 					collided = false;
-				}
+				}*/
 			}
 		}
 	}

@@ -12,7 +12,7 @@ GameObject:
   - 95: {fileID: 9506434}
   - 58: {fileID: 5858618}
   - 82: {fileID: 8263844}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ADN_Collectible
   m_TagString: ADN
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 468600}
   - 212: {fileID: 21277366}
   - 61: {fileID: 6132950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 484874}
   - 212: {fileID: 21261174}
   - 61: {fileID: 6129406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Piston
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 453428}
   - 114: {fileID: 11423088}
   - 212: {fileID: 21239694}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 444662}
   - 58: {fileID: 5874856}
   - 82: {fileID: 8259234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pivot
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - 114: {fileID: 11471172}
   - 114: {fileID: 11428596}
   - 82: {fileID: 8265830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - 212: {fileID: 21287942}
   - 61: {fileID: 6107858}
   - 114: {fileID: 11466974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 425636}
   - 212: {fileID: 21223508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: blob_extend_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.83708048, y: -.50400126, z: 0}
+  m_LocalPosition: {x: 3.78699994, y: -.504000008, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 425636}
@@ -250,9 +250,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .0500000007}
+  m_Offset: {x: .00632445002, y: .0604577065}
   serializedVersion: 2
-  m_Size: {x: .910000026, y: .5}
+  m_Size: {x: .915989578, y: .520915389}
 --- !u!61 &6129406
 BoxCollider2D:
   m_ObjectHideFlags: 1

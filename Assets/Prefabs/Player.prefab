@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 462632}
   - 114: {fileID: 11410418}
   - 212: {fileID: 21280528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ GameObject:
   - 4: {fileID: 404886}
   - 58: {fileID: 5882106}
   - 82: {fileID: 8224650}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotTopRight
   m_TagString: Pivot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &119836
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 486220}
   - 58: {fileID: 5810108}
   - 82: {fileID: 8213450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotLeft
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 486468}
   - 114: {fileID: 11437404}
   - 212: {fileID: 21222238}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 496826}
   - 58: {fileID: 5807186}
   - 82: {fileID: 8284780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotRight
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 486040}
   - 114: {fileID: 11478138}
   - 212: {fileID: 21255004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 415854}
   - 58: {fileID: 5876340}
   - 82: {fileID: 8292966}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotBottom
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - 60: {fileID: 6091270}
   - 114: {fileID: 11467216}
   - 114: {fileID: 11498084}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - 4: {fileID: 427622}
   - 114: {fileID: 11407750}
   - 212: {fileID: 21211038}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,13 +166,13 @@ GameObject:
   - 4: {fileID: 428252}
   - 58: {fileID: 5855606}
   - 82: {fileID: 8211548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotTopLeft
   m_TagString: Pivot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &168186
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   - 4: {fileID: 403686}
   - 58: {fileID: 5864738}
   - 82: {fileID: 8295984}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotTop
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - 4: {fileID: 414716}
   - 114: {fileID: 11427020}
   - 212: {fileID: 21233506}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - 4: {fileID: 496810}
   - 114: {fileID: 11434708}
   - 212: {fileID: 21227532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,13 +234,13 @@ GameObject:
   - 4: {fileID: 434580}
   - 58: {fileID: 5892694}
   - 82: {fileID: 8217110}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotBottomRight
   m_TagString: Pivot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &186000
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - 4: {fileID: 468964}
   - 58: {fileID: 5803460}
   - 82: {fileID: 8258588}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotBottomLeft
   m_TagString: Pivot
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - 4: {fileID: 469446}
   - 114: {fileID: 11484552}
   - 212: {fileID: 21248748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - 4: {fileID: 458950}
   - 114: {fileID: 11468068}
   - 212: {fileID: 21235160}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

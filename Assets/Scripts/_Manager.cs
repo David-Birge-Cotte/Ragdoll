@@ -16,7 +16,7 @@ public class _Manager : MonoBehaviour {
 
 	void Start()
 	{
-		player = GameObject.Find("Player");
+		player = GameObject.FindWithTag("Player");
         player.transform.position = initialPlayerPos;
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
         maxADN = GameObject.FindGameObjectsWithTag("ADN").Length;
@@ -24,10 +24,10 @@ public class _Manager : MonoBehaviour {
 
         if (PlayerPrefs.HasKey("Sound"))
         {
-            if ( PlayerPrefs.GetInt("Sound") == 0)
-                Camera.main.GetComponent<AudioSource>().mute = true;
-            else
-                Camera.main.GetComponent<AudioSource>().mute = false;
+			foreach( AudioSource AS in FindObjectsOfType<AudioSource>() )
+			{
+				AS.mute = PlayerPrefs.GetInt ("Sound") == 0;
+			}
         }
 
         //Save "1" for each brain in the world
@@ -65,7 +65,7 @@ public class _Manager : MonoBehaviour {
 	{
         PlayerPrefs.SetInt("currentADN", PlayerPrefs.GetInt("currentADN") + 1);
         ADNText.text = PlayerPrefs.GetInt("currentADN") + " / " + maxADN;
-        maxADN--;
+        //maxADN--;
 
         adn.transform.DORotate(new Vector3(0, 0, 3), 2);
         adn.transform.DOMoveY(adn.transform.position.y + 2, 2);
@@ -87,7 +87,14 @@ public class _Manager : MonoBehaviour {
         brain.transform.DOMove( Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f,1)), 3 );
         brain.transform.DOScale(Vector3.one * 3, 3).OnComplete(() => { Application.LoadLevel(0); });
         Destroy(player);
-    }
+	}
+	/*void AddBrainComplete()
+	{
+		Application.LoadLevel(0);
+		player.GetComponent<Rigidbody2D>().isKinematic = true;
+		player.transform.position = Vector3.zero;
+		player.transform.rotation = Quaternion.identity;
+	}*/
 
 	public void RestartLevel()
 	{
@@ -108,7 +115,10 @@ public class _Manager : MonoBehaviour {
 
 	public void GoToEditor()
 	{
-		Destroy( player );
+		/*player.GetComponent<Rigidbody2D>().isKinematic = true;
+		player.transform.position = Vector3.zero;
+		player.transform.rotation = Quaternion.identity;*/
+		Destroy(player);
 		Time.timeScale = 1;
 		Application.LoadLevel(0);
 	}

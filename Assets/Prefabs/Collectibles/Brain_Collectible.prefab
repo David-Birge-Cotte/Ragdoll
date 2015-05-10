@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21206668}
   - 58: {fileID: 5823030}
   - 114: {fileID: 11401058}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Brain_Collectible
   m_TagString: Brain
   m_Icon: {fileID: 0}

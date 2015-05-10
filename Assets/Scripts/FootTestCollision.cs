@@ -7,13 +7,21 @@ public class FootTestCollision : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D other)
 	{
-		if(other.gameObject.tag == "Platform")
+		if(other.collider.tag == "Platform")
+		{
 			IsOnFloor = true;
-
+			//Debug.Log("IsOnFloor true");
+		}
+		/*else
+		{
+			IsOnFloor = true;
+			Debug.Log("IsOnFloor not platform true");
+		}*/
 	}
 
 	void OnCollisionExit2D()
 	{
 		IsOnFloor = false;
+		//Debug.Log("IsOnFloor false");
 	}
 }
