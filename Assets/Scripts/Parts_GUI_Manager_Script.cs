@@ -34,7 +34,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     { 
 		if( GameObject.FindWithTag("Player") == null )
 			player = (GameObject)Instantiate(player);
-		Debug.Log( player.name );
+        //Debug.Log(player.name);
 
 		Binds = new GameObject[100];
         SpawnUI();
