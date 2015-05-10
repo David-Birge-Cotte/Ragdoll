@@ -2064,9 +2064,9 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 11450298, guid: f02b1962ae926ad49a343ea68b406843, type: 2}
-  m_TextComponent: {fileID: 11411032, guid: f02b1962ae926ad49a343ea68b406843, type: 2}
-  m_Placeholder: {fileID: 11481506, guid: f02b1962ae926ad49a343ea68b406843, type: 2}
+  m_TargetGraphic: {fileID: 1421763098}
+  m_TextComponent: {fileID: 1571622646}
+  m_Placeholder: {fileID: 1977403934}
   m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 1
+  m_CharacterLimit: 120
   m_EndEdit:
     m_PersistentCalls:
       m_Calls:
@@ -2384,8 +2384,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -12.5}
+  m_SizeDelta: {x: 0, y: -25}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1571622646
 MonoBehaviour:
@@ -2399,10 +2399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 15
