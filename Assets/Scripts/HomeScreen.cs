@@ -11,7 +11,7 @@ public class HomeScreen : MonoBehaviour {
 	{
 		if (PlayerPrefs.HasKey("brains"))
 		{
-			start.text = "Continue";
+			start.text = "CONTINUE";
 			restart.SetActive(true);
 		}
 	}
