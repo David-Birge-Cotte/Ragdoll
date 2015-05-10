@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class StartButton : MonoBehaviour 
 {
@@ -16,8 +17,17 @@ public class StartButton : MonoBehaviour
 	
 	}
 
-    public void LoadLevel(int i)
-    {
+    public void LoadLevel()
+	{
+		transform.DOMoveX(1000, 1).SetEase(Ease.InBack);
+		FindObjectsOfType<ButtonScript>()[0].transform.DOMoveY(800, 1.4f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
+		FindObjectsOfType<ButtonScript>()[1].transform.DOMoveY(800, 1.2f).SetEase(Ease.InBack);
+		FindObjectsOfType<ButtonScript>()[2].transform.DOMoveY(800, 1.0f).SetEase(Ease.InBack);
+		GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack);
+    }
+
+	void goToNextLevel()
+	{
 		foreach( PivotScript ps in FindObjectsOfType<PivotScript>() )
 			Destroy( ps.gameObject );
 		foreach( BindToLamb ps in FindObjectsOfType<BindToLamb>() )
@@ -26,9 +36,9 @@ public class StartButton : MonoBehaviour
 			Destroy( pt );
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			Destroy( ps );
-		
-    	player.transform.position = startPos;
-    	player.GetComponent<Rigidbody2D>().isKinematic = false;
-        Application.LoadLevel(i);
-    }
+
+		player.transform.position = startPos;
+		player.GetComponent<Rigidbody2D>().isKinematic = false;
+		Application.LoadLevel(1);		
+	}
 }

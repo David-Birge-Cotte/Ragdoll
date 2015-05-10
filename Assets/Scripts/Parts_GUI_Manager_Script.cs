@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class Parts_GUI_Manager_Script : MonoBehaviour 
 {
@@ -21,7 +22,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     //grab
     public GameObject SelectedObject;
-    public GameObject Player;
+    public GameObject player;
 
 
 	public int memberLimit = 3;
@@ -36,6 +37,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 		{
 			memberLimit += PlayerPrefs.GetInt("Score");
 		}
+		if( GameObject.Find("Player") == null )
+			player = (GameObject)Instantiate(player);
 	}
 
     public void SpawnUI()
@@ -64,6 +67,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     {
         SelectedObject = Instantiate(Prefabs[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         SelectedObject.GetComponent<Rigidbody2D>().isKinematic = true;
+		SelectedObject.transform.localScale = Vector3.zero;
+		SelectedObject.transform.DOScale(Prefabs[i].transform.localScale, 0.5f).SetEase(Ease.OutBounce);
 
     }
 
