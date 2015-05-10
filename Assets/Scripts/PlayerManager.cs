@@ -44,15 +44,20 @@ public class PlayerManager : MonoBehaviour
         //    }
         //}
 
-		if( collision.collider.tag == "ADN" )
-		{
-			FindObjectOfType<_Manager>().AddADN();
-			Destroy(collision.gameObject);
-		}
-		else if( collision.collider.tag == "EndLevel" )
-		{
-			Application.LoadLevel("CharacterCreation");
-			Destroy( gameObject );
-		}
 	}
+
+    void OnTriggerEnter2D( Collider2D collider )
+    {
+        if (collider.tag == "ADN")
+        {
+            FindObjectOfType<_Manager>().AddADN( collider.gameObject );
+            collider.enabled = false;
+        }
+        else if (collider.tag == "Brain")
+        {
+            FindObjectOfType<_Manager>().AddBrain(collider.gameObject);
+            collider.enabled = false;
+        }
+
+    }
 }

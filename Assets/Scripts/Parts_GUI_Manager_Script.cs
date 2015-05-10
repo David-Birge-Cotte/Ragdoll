@@ -38,8 +38,6 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 		if( GameObject.Find("Player") == null )
 			player = (GameObject)Instantiate(player);
 
-        brainValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentBrains").ToString();
-        ADNValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentADN").ToString();
 
         if (PlayerPrefs.GetInt("currentBrains") < defaultNbPivots)
             PlayerPrefs.SetInt("currentBrains", defaultNbPivots);
@@ -48,6 +46,9 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
             PlayerPrefs.SetInt("maxLimbs", defaultNbLimbs);
 
         LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
+        brainValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentBrains").ToString();
+        ADNValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentADN").ToString();
+
         InitLimbPivots();
 	}
 
