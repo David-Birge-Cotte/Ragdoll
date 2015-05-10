@@ -22,6 +22,14 @@ public class _Manager : MonoBehaviour {
         maxADN = GameObject.FindGameObjectsWithTag("ADN").Length;
         ADNText.text = PlayerPrefs.GetInt("currentADN") + " / " + maxADN;
 
+        if (PlayerPrefs.HasKey("Sound"))
+        {
+            if ( PlayerPrefs.GetInt("Sound") == 0)
+                Camera.main.GetComponent<AudioSource>().mute = true;
+            else
+                Camera.main.GetComponent<AudioSource>().mute = false;
+        }
+
         //Save "1" for each brain in the world
         if (!PlayerPrefs.HasKey("brains"))
         {
@@ -118,7 +126,7 @@ public class _Manager : MonoBehaviour {
 		{
 			Camera.main.GetComponent<AudioSource>().mute = soundActive = true;
 			soundButton.text = "Sound : ON";
-			PlayerPrefs.SetInt("Sound", 0);
+			PlayerPrefs.SetInt("Sound", 1);
 		}
 	}
 

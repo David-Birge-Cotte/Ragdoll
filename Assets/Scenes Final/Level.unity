@@ -5365,6 +5365,26 @@ Prefab:
       propertyPath: brains.Array.data[1]
       value: 
       objectReference: {fileID: 1130728832}
+    - target: {fileID: 161420, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442188, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496384, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463294, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431056, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
   m_IsPrefabParent: 0

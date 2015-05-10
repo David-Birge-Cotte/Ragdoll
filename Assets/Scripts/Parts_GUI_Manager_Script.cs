@@ -35,9 +35,16 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 		Binds = new GameObject[100];
         SpawnUI();
 
+        if (PlayerPrefs.HasKey("Sound"))
+        {
+            if (PlayerPrefs.GetInt("Sound") == 0)
+                Camera.main.GetComponent<AudioSource>().mute = true;
+            else
+                Camera.main.GetComponent<AudioSource>().mute = false;
+        }
+
 		if( GameObject.Find("Player") == null )
 			player = (GameObject)Instantiate(player);
-
 
         if (PlayerPrefs.GetInt("currentBrains") < defaultNbPivots)
             PlayerPrefs.SetInt("currentBrains", defaultNbPivots);
