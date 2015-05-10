@@ -635,11 +635,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 117956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b4133f33941a024fb189364d30fa39a, type: 3}
+  m_Script: {fileID: 11500000, guid: 327cd083cb499be448c2f80a205fcb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreUI: {fileID: 11460410}
-  soundButton: {fileID: 11496384}
+  soundButton: {fileID: 0}
   pausePanel: {fileID: 161420}
   inGamePanel: {fileID: 114898}
 --- !u!114 &11453138

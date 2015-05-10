@@ -19,11 +19,11 @@ public class StartButton : MonoBehaviour
 
     public void LoadLevel()
 	{
-		transform.DOMoveX(1000, 1).SetEase(Ease.InBack);
-		FindObjectsOfType<ButtonScript>()[0].transform.DOMoveY(800, 1.4f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
-		FindObjectsOfType<ButtonScript>()[1].transform.DOMoveY(800, 1.2f).SetEase(Ease.InBack);
-		FindObjectsOfType<ButtonScript>()[2].transform.DOMoveY(800, 1.0f).SetEase(Ease.InBack);
-		GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack);
+		transform.DOMoveX(2000, 1).SetEase(Ease.InBack);
+        FindObjectsOfType<ButtonScript>()[0].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
+        FindObjectsOfType<ButtonScript>()[1].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
+        FindObjectsOfType<ButtonScript>()[2].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
+		GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
     }
 
 	void goToNextLevel()
@@ -37,8 +37,8 @@ public class StartButton : MonoBehaviour
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			Destroy( ps );
 
-		player.transform.position = startPos;
-		player.GetComponent<Rigidbody2D>().isKinematic = false;
-		Application.LoadLevel(1);		
+        player.transform.position = startPos;
+        player.GetComponent<Rigidbody2D>().isKinematic = false;
+        Application.LoadLevel(1);
 	}
 }

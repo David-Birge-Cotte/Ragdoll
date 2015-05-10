@@ -32725,8 +32725,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 66858c07e013e39409117d3359e87e4e, type: 3}
   ButtonPrefab: {fileID: 11410100, guid: 149fd211ea1d63b48878bf1a16a50445, type: 2}
   Parent: {fileID: 1114958752}
+  BindPrefab: {fileID: 0}
   SelectedObject: {fileID: 0}
-  Player: {fileID: 0}
+  player: {fileID: 0}
+  memberLimit: 3
 --- !u!4 &701021629
 Transform:
   m_ObjectHideFlags: 0

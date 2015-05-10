@@ -8,17 +8,14 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     public GameObject[] Prefabs;
     public Sprite[] PartsSprites;
+    public Transform[] PartsPos;
     public Button ButtonPrefab;
 	GameObject[] Binds;
     int BindNumber = 0;
     public GameObject Parent;
     public GameObject BindPrefab;
-    float n;
-    float ButtonScale;
     float x;
     int NumberOfParts;
-    float ScreenHeight;
-    float ScreenWidth;
 
     //grab
     public GameObject SelectedObject;
@@ -43,24 +40,21 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     public void SpawnUI()
     {
-        ScreenHeight = Parent.GetComponent<RectTransform>().sizeDelta.y;
-        ScreenWidth = Parent.GetComponent<RectTransform>().sizeDelta.x;
-        x = ScreenWidth * 0.9f;
         NumberOfParts = PartsSprites.Length;
 		Button[] ButtonArray = new Button[NumberOfParts];
-        n = ScreenHeight / (NumberOfParts + 3);
-        ButtonScale = (n);
         for (int i = 0; i < NumberOfParts; i++)
         {
-            float y;
-            y = ScreenHeight - (n * 1.5f) - ((n + n / (NumberOfParts - 1)) * i);
             ButtonArray[i] = Instantiate(ButtonPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Button;
             ButtonArray[i].transform.SetParent(Parent.transform, false);
-            ButtonArray[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(x - ScreenWidth / 2, y - ScreenHeight / 2);
-            ButtonArray[i].GetComponent<RectTransform>().sizeDelta = new Vector3(ButtonScale, ButtonScale, 1);
+            ButtonArray[i].GetComponent<RectTransform>().position = PartsPos[i].position;
+            ButtonArray[i].GetComponent<RectTransform>().localScale = Vector3.zero;
+            ButtonArray[i].GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+            ButtonArray[i].GetComponent<RectTransform>().DOScale(new Vector3(2, 2, 1), 1).SetEase(Ease.OutBounce);
             ButtonArray[i].GetComponent<Image>().sprite = PartsSprites[i];
             ButtonArray[i].GetComponent<ButtonScript>().SerialNumber = i;
         }
+        FindObjectOfType<StartButton>().transform.localPosition = new Vector3(-1000, FindObjectOfType<StartButton>().transform.localPosition.y, 0);
+        FindObjectOfType<StartButton>().transform.DOLocalMoveX(0, 1).SetEase(Ease.OutBack);
     }
 
     public void GrabPart(int i) //parties du corps de 0 à i
@@ -99,7 +93,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
 		Binds[BindNumber] = Instantiate(BindPrefab);
 		Binds[BindNumber].GetComponent<BindToLamb>().LinkedObject = SelectedObject.GetComponent<Lamb>();
-		Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3(ButtonScale / 2, ButtonScale / 2, 1);
+		Binds[BindNumber].GetComponent<RectTransform>().sizeDelta = new Vector3( 1, 1, 1);
         BindNumber++;
 
 

@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedObject: {fileID: 0}
-  inputTxt: {fileID: 0}
-  placeHoler: {fileID: 0}
+  inputTxt: {fileID: 11411032}
+  placeHoler: {fileID: 11481506}
 --- !u!114 &11411032
 MonoBehaviour:
   m_ObjectHideFlags: 1
