@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour {
 
 	void Start()
     {
-		target = GameObject.FindGameObjectWithTag("Player");
+		target = GameObject.Find("Player");
 	}
 
 
@@ -19,8 +19,7 @@ public class CameraFollow : MonoBehaviour {
     {
         if(!target)
         {
-			target = GameObject.FindGameObjectWithTag("Player");
-			Debug.Log("Pas de Player !");
+            target = GameObject.Find("Player");
             return;
         }
 
