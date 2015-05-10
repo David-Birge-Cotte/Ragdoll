@@ -80,7 +80,8 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
         for (int i = 0; i < PlayerPrefs.GetInt("currentBrains"); i++)
 		{
-			player.transform.GetChild(i).gameObject.SetActive(true);
+            if (i < player.transform.childCount )
+			    player.transform.GetChild(i).gameObject.SetActive(true);
         }
     }
 

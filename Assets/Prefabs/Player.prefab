@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &122854
 GameObject:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &141014
 GameObject:
   m_ObjectHideFlags: 1
@@ -118,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &148446
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &177294
 GameObject:
   m_ObjectHideFlags: 1
@@ -359,7 +359,7 @@ Transform:
   m_Children:
   - {fileID: 496810}
   m_Father: {fileID: 456234}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &427622
 Transform:
   m_ObjectHideFlags: 1
@@ -411,8 +411,8 @@ Transform:
   - {fileID: 403686}
   - {fileID: 486220}
   - {fileID: 496826}
-  - {fileID: 415854}
   - {fileID: 468964}
+  - {fileID: 415854}
   - {fileID: 434580}
   - {fileID: 428252}
   - {fileID: 404886}
@@ -455,7 +455,7 @@ Transform:
   m_Children:
   - {fileID: 427622}
   m_Father: {fileID: 456234}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &469446
 Transform:
   m_ObjectHideFlags: 1
@@ -475,7 +475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .160999998, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456234}
@@ -1411,6 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 161528, guid: 22b278342acef094b857686bfaddc61f, type: 2}
+  nbCurrentLimb: 0
 --- !u!212 &21211038
 SpriteRenderer:
   m_ObjectHideFlags: 1
