@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes Final/CreationMenu.unity
   - enabled: 1
     path: Assets/Scenes Final/Level.unity
+  - enabled: 1
+    path: Assets/Scenes Test/LevelAlpha.unity
