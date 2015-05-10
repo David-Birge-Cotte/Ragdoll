@@ -35,6 +35,11 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     { 
 		if( GameObject.FindWithTag("Player") == null )
             player = (GameObject)Instantiate(playerPrefab);
+		else if( player == null )
+		{
+			player = GameObject.FindWithTag("Player");
+			nbCurrentLimb = player.GetComponent<PlayerManager>().nbCurrentLimb;
+		}
         //Debug.Log(player.name);
 
 		Binds = new GameObject[100];
@@ -68,10 +73,10 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
     {
         //active pivots == maxLimbsPivots
 
-        for (int i = 0; i < player.transform.childCount; i++)
+        /*for (int i = 0; i < player.transform.childCount; i++)
         {
             player.transform.GetChild(i).gameObject.SetActive(false);
-        }
+        }*/
 
         for (int i = 0; i < PlayerPrefs.GetInt("currentBrains"); i++)
 		{
@@ -108,8 +113,11 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.FindWithTag("Player") == null)
-            player = (GameObject)Instantiate(playerPrefab);
+		if (GameObject.FindWithTag("Player") == null)
+		{
+			player = (GameObject)Instantiate(playerPrefab);
+			InitLimbPivots();
+		}
 
         if (SelectedObject != null)
         {
@@ -145,6 +153,7 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
         pivotTransform.GetComponentInParent<LambsManager>().AttachLamb(SelectedObject, pivotTransform);
         SelectedObject = null;
 		nbCurrentLimb++;
+		player.GetComponent<PlayerManager>().nbCurrentLimb++;
         LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
     }
     

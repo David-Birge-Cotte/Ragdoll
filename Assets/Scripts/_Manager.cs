@@ -167,7 +167,7 @@ public class _Manager : MonoBehaviour {
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			ps.enabled = true;
 
-		initialPlayerPos = player.transform.position;
+		initialPlayerPos = player.transform.position + new Vector3(0,3);
 		player.GetComponent<Rigidbody2D>().isKinematic = true;
 		player.transform.position = Vector3.zero;
 		player.transform.rotation = Quaternion.identity;
