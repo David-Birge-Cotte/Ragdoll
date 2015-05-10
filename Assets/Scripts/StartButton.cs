@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour 
 {
-	public GameObject player;
-	public Vector3 startPos;
+	//public GameObject player;
+	//public Vector3 startPos;
+	public InputField creatureName;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+	{
+		if( PlayerPrefs.HasKey("Name" ) )
+			Debug.Log("name");
+		creatureName.text = PlayerPrefs.GetString("Name");
+		Debug.Log(creatureName.text);
 	}
 	
 	// Update is called once per frame
@@ -61,5 +67,11 @@ public class StartButton : MonoBehaviour
 			ps.enabled = false;
 
         Application.LoadLevel(2);
+	}
+
+	public void SaveName()
+	{
+		PlayerPrefs.SetString("Name", creatureName.text );
+		Debug.Log(creatureName.text);
 	}
 }

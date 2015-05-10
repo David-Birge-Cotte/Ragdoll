@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
 	public GameObject particlePrefab;
 	bool DontRecreate;
+	public int nbCurrentLimb;
 	//public Vector3 initialPlayerPos;
 
     void Awake()
