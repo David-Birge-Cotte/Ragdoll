@@ -6,6 +6,7 @@ public class LegBehavior_2 : Lamb {
 	public float speedExtend = 12.0f;
 	public float speedRetract = 20.0f;
 	public float speedRetractPivot = 10.0f;
+	public float impulseForce = 2000.0f;
 
 
 	public GameObject piston;
@@ -48,7 +49,7 @@ public class LegBehavior_2 : Lamb {
 				if(IsOnFloor && coolDown <= 0)
 				{
 					coolDown = 0.1f;
-					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1600));
+					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, impulseForce));
 					Debug.Log( "impulse ! because isOnFloor" );
 				}
 			} 
