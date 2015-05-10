@@ -437,6 +437,7 @@ MonoBehaviour:
   speedExtend: 12
   speedRetract: 20
   speedRetractPivot: 10
+  impulseForce: 2500
   piston: {fileID: 129792}
   foot: {fileID: 169520}
   IsOnFloor: 0
@@ -452,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f6cbc24d1ef414abab1653f4715493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDisable: 0
 --- !u!114 &11428596
 MonoBehaviour:
   m_ObjectHideFlags: 1
