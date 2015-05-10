@@ -30,14 +30,20 @@ public class StartButton : MonoBehaviour
 	void goToNextLevel()
 	{
 		foreach( PivotScript ps in FindObjectsOfType<PivotScript>() )
-			Destroy( ps.gameObject );
+		{
+			ps.enabled = false;
+			ps.GetComponent<SpriteRenderer>().enabled = false;
+		}
 		foreach( BindToLamb ps in FindObjectsOfType<BindToLamb>() )
-			Destroy( ps.gameObject );
+		{
+			ps.enabled = false;
+			ps.GetComponent<Canvas>().enabled = false;
+		}
 		foreach( PivotTrigger pt in FindObjectsOfType<PivotTrigger>() )
-			Destroy( pt );
+			pt.enabled = false;
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
-			Destroy( ps );
+			ps.enabled = false;
 
-        Application.LoadLevel(3);
+        Application.LoadLevel(2);
 	}
 }
