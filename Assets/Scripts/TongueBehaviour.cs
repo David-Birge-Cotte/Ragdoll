@@ -38,7 +38,7 @@ public class TongueBehaviour : Lamb {
 			{
 				head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 				collided = true;
-				Debug.Log("key release");
+				//Debug.Log("key release");
 			}
 			else if( !throwed )
 			{
@@ -46,7 +46,7 @@ public class TongueBehaviour : Lamb {
 				throwed = false;
 				collided = false;
 				hit = new RaycastHit2D();
-				Debug.Log("end key release");
+				//Debug.Log("end key release");
 			}
 		}
 
@@ -68,9 +68,9 @@ public class TongueBehaviour : Lamb {
 					Debug.Log(distance+" "+head.transform.localPosition.y);
 					if( distance > 7 )
 					{
-						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-						collided = true;
-						Debug.Log("too long "+distance);
+						/*head.GetComponent<SpriteRenderer>().sprite = mouths[0];
+						collided = true;*/
+						//Debug.Log("too long "+distance);
 					}
 					else if( head.transform.localPosition.y > distance )
 					{
@@ -80,7 +80,7 @@ public class TongueBehaviour : Lamb {
 						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 						collided = true;
 						//GetComponent<AudioSource>().PlayOneShot(SFX[1]);
-						Debug.Log("true collided");
+						//Debug.Log("true collided");
 					}
 					/*else
 					{
@@ -93,7 +93,7 @@ public class TongueBehaviour : Lamb {
 				{
 					head.GetComponent<SpriteRenderer>().sprite = mouths[0];
 					collided = true;
-					Debug.Log("not collided");
+					//Debug.Log("not collided");
 				}
 			}
 			else
@@ -116,7 +116,7 @@ public class TongueBehaviour : Lamb {
 					throwed = false;
 					collided = false;
 					hit = new RaycastHit2D();
-					Debug.Log("end");
+					//Debug.Log("end");
 				}
 				/*else
 				{

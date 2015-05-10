@@ -48,7 +48,8 @@ public class LegBehavior_2 : Lamb {
 				if(IsOnFloor && coolDown <= 0)
 				{
 					coolDown = 0.1f;
-					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 800));
+					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 16000));
+					Debug.Log( "impulse ! because isOnFloor" );
 				}
 			} 
 		}

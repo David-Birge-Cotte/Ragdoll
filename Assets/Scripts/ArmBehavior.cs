@@ -4,7 +4,7 @@ using System.Collections;
 public class ArmBehavior : Lamb
 {
 	public bool inverted = false;
-	public float force = 15;
+	public float force = 12;
 
 	void Start()
 	{
