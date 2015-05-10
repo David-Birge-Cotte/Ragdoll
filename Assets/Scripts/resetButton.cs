@@ -21,7 +21,7 @@ public class resetButton : MonoBehaviour {
     {
         //PlayerPrefs.DeleteAll();
         Destroy(GameObject.FindWithTag("Player"));
-        Application.LoadLevel(Application.loadedLevel);
+        //Application.LoadLevel(Application.loadedLevel);
     }
 
     public void TurnToRed()

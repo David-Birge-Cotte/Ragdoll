@@ -53446,7 +53446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f6a17bfda0e24eb72c0ba77c4c5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 10, z: 0}
   smoothiness: .100000001
 --- !u!81 &1865526047
 AudioListener:
