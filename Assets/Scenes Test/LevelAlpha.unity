@@ -21750,7 +21750,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1001 &767779914
 Prefab:
   m_ObjectHideFlags: 0
@@ -52559,7 +52559,7 @@ Transform:
   - {fileID: 908628836}
   - {fileID: 441758452}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1834011525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52573,7 +52573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1
   height: 1
-  color: {r: .521518171, g: .779411793, b: .587325573, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 0}
   tilePrefab: {fileID: 446216, guid: ac60e1a710c70784982755e68b77df9b, type: 2}
   tileSet: {fileID: 11400000, guid: cb8d2ac4b2c0359439e9e18525e925e1, type: 2}
 --- !u!1001 &1834468465
