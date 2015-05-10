@@ -12268,7 +12268,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_RootOrder
-      value: 1276
+      value: 1277
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_LocalScale.x
@@ -12289,6 +12289,10 @@ Prefab:
     - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_TagString
       value: Brain
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423408, guid: 5546b641550c9bf469f269b131424cca, type: 2}
+      propertyPath: id
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5546b641550c9bf469f269b131424cca, type: 2}
@@ -18531,21 +18535,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .333333343
-      objectReference: {fileID: 0}
-    - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .333333343
-      objectReference: {fileID: 0}
     - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_Name
       value: Cerveau0
-      objectReference: {fileID: 0}
-    - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
-      propertyPath: m_TagString
-      value: Brain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5546b641550c9bf469f269b131424cca, type: 2}
@@ -21732,6 +21724,33 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 444468, guid: 14e53d7b89799e949ae2d908eec327d7, type: 2}
   m_PrefabInternal: {fileID: 763339975}
+--- !u!1 &763875303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 763875304}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763875304
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763875303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.09000015, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1001 &767779914
 Prefab:
   m_ObjectHideFlags: 0
@@ -25725,7 +25744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_RootOrder
-      value: 1275
+      value: 1276
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_LocalScale.x
@@ -25746,6 +25765,10 @@ Prefab:
     - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_TagString
       value: Brain
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423408, guid: 5546b641550c9bf469f269b131424cca, type: 2}
+      propertyPath: id
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5546b641550c9bf469f269b131424cca, type: 2}
@@ -36477,6 +36500,10 @@ Prefab:
     - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_TagString
       value: Brain
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423408, guid: 5546b641550c9bf469f269b131424cca, type: 2}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5546b641550c9bf469f269b131424cca, type: 2}
@@ -51032,6 +51059,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11450658, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: brains.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 22430500, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -51124,6 +51155,10 @@ Prefab:
       propertyPath: brains.Array.data[4]
       value: 
       objectReference: {fileID: 2046952649}
+    - target: {fileID: 11450658, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
+      propertyPath: brains.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b98d41279d2c5a48a5a23565d6a604d, type: 2}
   m_IsPrefabParent: 0
@@ -52520,9 +52555,9 @@ Transform:
   - {fileID: 1236656822}
   - {fileID: 41961324}
   - {fileID: 1284712030}
+  - {fileID: 2046952648}
   - {fileID: 908628836}
   - {fileID: 441758452}
-  - {fileID: 2046952648}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!114 &1834011525
@@ -58380,7 +58415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_RootOrder
-      value: 1277
+      value: 1275
       objectReference: {fileID: 0}
     - target: {fileID: 484914, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_LocalScale.x
@@ -58401,6 +58436,10 @@ Prefab:
     - target: {fileID: 133150, guid: 5546b641550c9bf469f269b131424cca, type: 2}
       propertyPath: m_TagString
       value: Brain
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423408, guid: 5546b641550c9bf469f269b131424cca, type: 2}
+      propertyPath: id
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5546b641550c9bf469f269b131424cca, type: 2}

@@ -11,19 +11,19 @@ public class _Manager : MonoBehaviour {
     private int maxBrain;
     private int maxADN;
     private GameObject player;
-    //public Vector3 initialPlayerPos;
+	public static Vector3 initialPlayerPos = new Vector3(0,5);
     public List<GameObject> brains;
 
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
-       // player.transform.position = initialPlayerPos;
+        player.transform.position = initialPlayerPos;
 
-		foreach( Checkpoint CP in FindObjectsOfType<Checkpoint>() )
+		/*foreach( Checkpoint CP in FindObjectsOfType<Checkpoint>() )
 		{
 			if( CP.isActive )
 				player.transform.position = CP.transform.position;
-		}
+		}*/
 
 		player.GetComponent<Rigidbody2D>().isKinematic = false; //au démarage du niveau
         maxADN = GameObject.FindGameObjectsWithTag("ADN").Length;
@@ -105,7 +105,7 @@ public class _Manager : MonoBehaviour {
 
 	public void RestartLevel()
 	{
-		//player.transform.position = initialPlayerPos;
+		player.transform.position = new Vector3(0,5);
 		Application.LoadLevel(Application.loadedLevel);
 	}
 
@@ -165,7 +165,8 @@ public class _Manager : MonoBehaviour {
 			pt.enabled = true;
 		foreach( LambsManager ps in FindObjectsOfType<LambsManager>() )
 			ps.enabled = true;
-		
+
+		initialPlayerPos = player.transform.position;
 		player.GetComponent<Rigidbody2D>().isKinematic = true;
 		player.transform.position = Vector3.zero;
 		player.transform.rotation = Quaternion.identity;
