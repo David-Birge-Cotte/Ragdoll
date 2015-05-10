@@ -50,6 +50,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (collider.tag == "ADN")
         {
+            collider.GetComponent<AudioSource>().Play();
             FindObjectOfType<_Manager>().AddADN( collider.gameObject );
             collider.enabled = false;
         }

@@ -22,11 +22,6 @@ public class ArmBehavior : Lamb
 			}
 			else
 			{
-				if ( !GetComponent<AudioSource>().isPlaying )
-				{
-					GetComponent<AudioSource>().clip = SFX[ 1 ];
-					GetComponent<AudioSource>().Play();
-				}
 				GetComponent<Rigidbody2D>().AddTorque(-force,ForceMode2D.Impulse);
 			}
 		}

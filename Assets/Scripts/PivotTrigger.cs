@@ -37,6 +37,9 @@ public class PivotTrigger : MonoBehaviour {
     {       
         if (col.tag == "Pivot")
         {
+            if (col.transform.childCount > 1)
+                return;
+
             pivotToBeAttached = col.gameObject;
             col.GetComponentInChildren<PivotScript>().transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuart);
         }
@@ -49,7 +52,7 @@ public class PivotTrigger : MonoBehaviour {
         if (col.tag == "Pivot")
         {
             pivotToBeAttached = null;
-            col.GetComponentInChildren<PivotScript>().transform.DOScale(Vector3.zero, 1f).SetEase(Ease.OutQuart);
+            col.GetComponentInChildren<PivotScript>().transform.DOScale(new Vector3(0.5f,0.5f,0.5f), 0.5f).SetEase(Ease.OutQuart);
         }
     }
 }

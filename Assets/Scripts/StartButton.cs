@@ -23,7 +23,8 @@ public class StartButton : MonoBehaviour
         FindObjectsOfType<ButtonScript>()[0].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
         FindObjectsOfType<ButtonScript>()[1].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
         FindObjectsOfType<ButtonScript>()[2].transform.DOScale(Vector3.zero, 1).SetEase(Ease.OutBounce);
-		GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
+        GameObject.FindWithTag("Player").transform.DOKill();
+        GameObject.FindWithTag("Player").transform.DOMoveY(-10, 1.0f).SetEase(Ease.InBack).OnStepComplete(goToNextLevel);
     }
 
 	void goToNextLevel()
