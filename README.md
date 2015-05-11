@@ -7,4 +7,4 @@ Grande Confiture de jeu 2015 - Projet In Vitro - "Power to player"
 
 
 
-if you have the "Development Build" watermark, reinstal plugin : http://unity3d.com/webplayer
+if you have the "Development Build" watermark, reinstall unity3D plugin : http://unity3d.com/webplayer
