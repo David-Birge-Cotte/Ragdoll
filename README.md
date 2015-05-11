@@ -1,7 +1,7 @@
 # In Vitro
 Grande Confiture de jeu 2015 - Projet In Vitro - "Power to player"
 
-<video>http://fat.gfycat.com/DependableInexperiencedHerring.webm</video>
+![alt tag](http://giant.gfycat.com/DependableInexperiencedHerring.gif)
 
 # <a href="http://github.com/PrTesla/Ragdoll/releases">Download the Game for windows</a>
 
