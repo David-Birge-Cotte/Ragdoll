@@ -55,6 +55,7 @@ public class PlayerManager : MonoBehaviour
         }
         else if (collider.tag == "Brain")
         {
+			collider.GetComponent<AudioSource>().PlayOneShot( collider.GetComponent<Brain>().pickupSound );
             FindObjectOfType<_Manager>().AddBrain(collider.gameObject);
             collider.enabled = false;
 		}

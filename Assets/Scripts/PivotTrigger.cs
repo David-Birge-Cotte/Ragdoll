@@ -10,7 +10,6 @@ public class PivotTrigger : MonoBehaviour {
 	void Start () 
     {
 		UIManager = GameObject.Find("UIManager");
-		Debug.Log( UIManager.name );
 	}
 
 	void Reset () 

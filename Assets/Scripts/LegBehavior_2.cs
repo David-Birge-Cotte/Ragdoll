@@ -11,7 +11,7 @@ public class LegBehavior_2 : Lamb {
 
 	public GameObject piston;
 	public GameObject foot;
-	public bool IsOnFloor;
+	public bool isOnFloor;
 	private GameObject player;
 
 	public float maxYPiston = 2.0f;
@@ -31,7 +31,7 @@ public class LegBehavior_2 : Lamb {
 		if(coolDown > 0)
 			coolDown -= Time.deltaTime;
 
-		IsOnFloor = foot.GetComponent<FootTestCollision>().IsOnFloor;
+		isOnFloor = foot.GetComponent<FootTestCollision>().isOnFloor;
 
 
 		if(Input.GetKeyDown(userKey))
@@ -46,11 +46,11 @@ public class LegBehavior_2 : Lamb {
 					GetComponent<HingeJoint2D>().anchor += new Vector2(0, Time.deltaTime * speedRetractPivot);
 				}
 				piston.transform.Translate( 0, Time.deltaTime * speedRetract, 0 );
-				if(IsOnFloor && coolDown <= 0)
+				if(isOnFloor && coolDown <= 0)
 				{
 					coolDown = 0.1f;
 					player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, impulseForce));
-					Debug.Log( "impulse ! because isOnFloor" );
+//					Debug.Log( "impulse ! because isOnFloor" );
 				}
 			} 
 		}

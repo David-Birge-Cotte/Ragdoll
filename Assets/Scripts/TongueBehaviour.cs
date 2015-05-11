@@ -2,20 +2,24 @@
 
 public class TongueBehaviour : Lamb {
 
+
+	public GameObject head, neckPivot;
+	public Sprite[] mouths;
+	public float speed;
+	public float maxScale = 10;
+
+	private bool throwed, collided;
+	private Vector3 contactPoint = Vector3.zero;
+	private GameObject contactObject = null;
+	private bool isIn = false;
+
+	private Vector3 initialHeadPos = Vector3.zero;
+	
 	void Start()
 	{
+		initialHeadPos = head.transform.localPosition;
 		userKey = "v";
 	}
-
-	public GameObject head, cou;
-	public Sprite[] mouths;
-
-	public bool throwed, collided;
-
-	float distance, velocityF;
-	Vector3 velocity;
-
-	RaycastHit2D hit;
 
 	void Update ()
 	{
@@ -24,106 +28,91 @@ public class TongueBehaviour : Lamb {
 		if( Input.GetKeyDown(userKey) )
 		{
 			GetComponent<AudioSource>().PlayOneShot(SFX[0]);
-
-			if( !throwed && !collided )
-			{
-				throwed = true;
-				head.GetComponent<SpriteRenderer>().sprite = mouths[1];
-				Debug.Log("begin");
-			}
+			throwed = true;
 		}
 		else if( Input.GetKeyUp(userKey) )
 		{
-			if( throwed && !collided )
-			{
-				head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-				collided = true;
-				//Debug.Log("key release");
-			}
-			else if( !throwed )
-			{
-				GetComponent<DistanceJoint2D>().enabled = false;
-				throwed = false;
-				collided = false;
-				hit = new RaycastHit2D();
-				//Debug.Log("end key release");
-			}
+			GetComponent<DistanceJoint2D>().connectedBody = null;
+			GetComponent<DistanceJoint2D>().enabled = false;			
+			head.transform.localPosition = initialHeadPos;
+			throwed = false;
 		}
 
-		if( throwed )
+		if (throwed)
+			GetOut();
+		else if (!isIn)					
+			GetIn();
+	}
+
+	void GetOut()
+	{
+//		Debug.Log("get out");
+		if( !Input.GetKey(userKey) )
+			throwed = false;
+
+		if ( head.GetComponent<SpriteRenderer>().sprite == mouths[0])
+			head.GetComponent<SpriteRenderer>().sprite = mouths[1];
+		isIn = false;
+
+		if (collided)
 		{
-			if( !collided )
+			if ( !GetComponent<DistanceJoint2D>().enabled )
 			{
-				head.transform.localPosition += new Vector3(0,0.3f);
-				cou.transform.localPosition += new Vector3(0,0.16f);
-				cou.transform.localScale += new Vector3(0,0.24f);
-				/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
-				cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, new Vector3(0,20), ref velocity, 0.3f );
-				cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,4), ref velocity, 0.3f );*/
+				head.transform.position = contactPoint;
+				GetComponent<DistanceJoint2D>().connectedAnchor = head.transform.position;
+				GetComponent<DistanceJoint2D>().enabled = true;
 
-				hit = Physics2D.Raycast( head.transform.position, transform.up );
-				if( hit.collider != null /*&& hit.collider.tag == "Platform" */)
-				{
-					distance = Vector3.Distance( transform.localPosition, transform.InverseTransformPoint(hit.point) );
-                    //Debug.Log(distance+" "+head.transform.localPosition.y);
-					if( distance > 7 )
-					{
-						/*head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-						collided = true;*/
-						//Debug.Log("too long "+distance);
-					}
-					else if( head.transform.localPosition.y > distance )
-					{
-						GetComponent<DistanceJoint2D>().connectedAnchor = (Vector2)hit.point;
-						GetComponent<DistanceJoint2D>().enabled = true;
-
-						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-						collided = true;
-						//GetComponent<AudioSource>().PlayOneShot(SFX[1]);
-						//Debug.Log("true collided");
-					}
-					/*else
-					{
-						head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-						collided = true;
-						GetComponent<AudioSource>().PlayOneShot(SFX[0]);
-					}*/
-				}
-				else if( head.transform.localPosition.y > 12 )
-				{
-					head.GetComponent<SpriteRenderer>().sprite = mouths[0];
-					collided = true;
-					//Debug.Log("not collided");
-				}
-			}
-			else
-			{
-				if( head.transform.localPosition.y > 0.4f )
-				{
-					/*head.transform.localPosition = Vector3.SmoothDamp( head.transform.localPosition, new Vector3(0,2.2f), ref velocity, 0.3f );
-					cou.transform.localPosition = Vector3.SmoothDamp( cou.transform.localPosition, Vector3.zero, ref velocity, 0.3f );
-					cou.transform.localScale = Vector3.SmoothDamp( cou.transform.localScale, new Vector3(1.5f,1.5f), ref velocity, 0.3f );*/
-					GetComponent<DistanceJoint2D>().distance = Mathf.SmoothDamp( GetComponent<DistanceJoint2D>().distance, 0, ref velocityF, 0.3f );
-
-					head.transform.localPosition -= new Vector3(0,0.3f);
-					cou.transform.localPosition -= new Vector3(0,0.16f);
-					cou.transform.localScale -= new Vector3(0,0.24f);
-					//GetComponent<HingeJoint2D>().anchor -= new Vector2(0,0.5f);
-				}
-				else if( !Input.GetKey(userKey) )
-				{
-					GetComponent<DistanceJoint2D>().enabled = false;
-					throwed = false;
-					collided = false;
-					hit = new RaycastHit2D();
-					//Debug.Log("end");
-				}
-				/*else
-				{
-					throwed = false;
-					collided = false;
-				}*/
+				if ( contactObject.GetComponent<Rigidbody2D>() != null )
+					GetComponent<DistanceJoint2D>().connectedBody = contactObject.GetComponent<Rigidbody2D>();
+				throwed = false;
 			}
 		}
+		else
+		{
+//			Debug.Log("aggrandir");
+			neckPivot.transform.localScale += new Vector3(0,speed, 0) * Time.deltaTime;
+			head.transform.localScale = new Vector2 ( 1 / neckPivot.transform.localScale.x, 1 / neckPivot.transform.localScale.y );
+		}
+	}
+
+	void GetIn()
+	{
+//		Debug.Log("get in");
+		if ( head.GetComponent<SpriteRenderer>().sprite == mouths[1])
+			head.GetComponent<SpriteRenderer>().sprite = mouths[0];
+
+		if ( collided )
+		{
+			float velocity = 0;
+			GetComponent<DistanceJoint2D>().distance = Mathf.SmoothDamp( GetComponent<DistanceJoint2D>().distance, 0, ref velocity, 0.3f );
+		}
+
+		if ( neckPivot.transform.localScale.y > 1)
+		{
+			isIn = false;
+			neckPivot.transform.localScale -= new Vector3(0,speed, 0) * Time.deltaTime;
+			head.transform.localScale = new Vector2 ( 1 / neckPivot.transform.localScale.x, 1 / neckPivot.transform.localScale.y );
+		}
+		else
+		{
+			neckPivot.transform.localScale = Vector3.one;
+			throwed = false;
+			isIn = true;
+		}
+	}
+
+
+	void OnCollisionEnter2D( Collision2D col )
+	{
+		if ( col.collider.tag == "Player" || col.collider.tag == "Lambs" || col.collider.tag == "Pivots"  )
+			return;
+		collided = true;
+		contactPoint = col.contacts[0].point;
+	}
+	void OnCollisionExit2D( Collision2D col )
+	{
+		collided = false;
+		contactPoint = Vector3.zero;
+		contactObject = col.gameObject;
 	}
 }

@@ -3,11 +3,17 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class resetButton : MonoBehaviour {
+public class resetButton : MonoBehaviour 
+{
+	public Parts_GUI_Manager_Script UIManager;
 
 	// Use this for initialization
 	void Start () 
     {
+		if ( !UIManager )
+		{
+			Debug.LogError("reset button need UIManager");
+		}
 	
 	}
 	
@@ -20,7 +26,8 @@ public class resetButton : MonoBehaviour {
     public void ResetStats()
     {
         //PlayerPrefs.DeleteAll();
-        Destroy(GameObject.FindWithTag("Player"));
+		Destroy(GameObject.FindWithTag("Player"));
+		UIManager.GeneratePlayer();
         //Application.LoadLevel(Application.loadedLevel);
     }
 

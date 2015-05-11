@@ -83,7 +83,7 @@ GameObject:
   - 82: {fileID: 8265830}
   m_Layer: 9
   m_Name: Leg
-  m_TagString: Untagged
+  m_TagString: Lambs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   impulseForce: 3500
   piston: {fileID: 129792}
   foot: {fileID: 169520}
-  IsOnFloor: 0
+  isOnFloor: 0
   maxYPiston: 2
 --- !u!114 &11423088
 MonoBehaviour:
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4449aafef68d1fc4c8695c5fbcda6dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsOnFloor: 0
+  isOnFloor: 0
 --- !u!114 &11471172
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,13 +3,26 @@ using System.Collections;
 
 public class FootTestCollision : MonoBehaviour {
 
-	public bool IsOnFloor;
+	public bool isOnFloor;
+	private float distanceToGround = 0;
+
+	void Start()
+	{
+		distanceToGround = GetComponent<BoxCollider2D>().bounds.extents.y;
+	}
+
+	public bool IsOnFloor()
+	{
+		Debug.Log(Physics2D.Raycast(transform.position, -Vector2.up, distanceToGround + 0.1f));
+		Debug.DrawRay(transform.position,-Vector2.up, Color.cyan, distanceToGround );
+		return Physics2D.Raycast(transform.position, -Vector2.up, distanceToGround + 0.1f);
+	}
 
 	void OnCollisionStay2D(Collision2D other)
 	{
 		if(other.collider.tag == "Platform")
 		{
-			IsOnFloor = true;
+			isOnFloor = true;
 			//Debug.Log("IsOnFloor true");
 		}
 		/*else
@@ -21,7 +34,7 @@ public class FootTestCollision : MonoBehaviour {
 
 	void OnCollisionExit2D()
 	{
-		IsOnFloor = false;
+		isOnFloor = false;
 		//Debug.Log("IsOnFloor false");
 	}
 }

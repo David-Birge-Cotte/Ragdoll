@@ -34,7 +34,9 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 	void Start()
     { 
 		if( GameObject.FindWithTag("Player") == null )
-            player = (GameObject)Instantiate(playerPrefab);
+		{
+			GeneratePlayer();
+		}
 		else if( player == null )
 		{
 			player = GameObject.FindWithTag("Player");
@@ -61,12 +63,19 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
         if (PlayerPrefs.GetInt("maxLimbs") < defaultNbLimbs)
             PlayerPrefs.SetInt("maxLimbs", defaultNbLimbs);
-
-        LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
-        brainValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentBrains").ToString();
+		
+		LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
+        brainValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentBrains").ToString() + "/8";
         ADNValue.GetComponent<Text>().text = PlayerPrefs.GetInt("currentADN").ToString();
 
-        InitLimbPivots();
+	}
+
+	public void GeneratePlayer()
+	{
+		player = (GameObject)Instantiate(playerPrefab);
+		nbCurrentLimb = 0;
+		InitLimbPivots();
+		LimbValue.GetComponent<Text>().text = nbCurrentLimb + "/" + PlayerPrefs.GetInt("maxLimbs");
 	}
 
     void InitLimbPivots()
@@ -114,12 +123,6 @@ public class Parts_GUI_Manager_Script : MonoBehaviour
 
     void Update()
     {
-		if (GameObject.FindWithTag("Player") == null)
-		{
-			player = (GameObject)Instantiate(playerPrefab);
-			InitLimbPivots();
-		}
-
         if (SelectedObject != null)
         {
             Vector3 mousePos = Input.mousePosition;

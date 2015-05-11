@@ -43,25 +43,25 @@ public class _Manager : MonoBehaviour {
         //Save "1" for each brain in the world
         if (!PlayerPrefs.HasKey("brains"))
         {
-            Debug.Log("first time playing.");
+//            Debug.Log("first time playing.");
             string save = "";
             maxBrain = GameObject.FindGameObjectsWithTag("Brain").Length;
             for ( var i = 0; i < maxBrain; i++)
             {
                 save += "1";                
             }
-            Debug.Log("saving state with this : " + save);
+//            Debug.Log("saving state with this : " + save);
             PlayerPrefs.SetString("brains", save);
         }
         else
         {
-            Debug.Log("has already played. this is the save state : "+PlayerPrefs.GetString("brains"));
+//            Debug.Log("has already played. this is the save state : "+PlayerPrefs.GetString("brains"));
         }
 
         //disable brains that has already been gained
         for (int i = 0; i < brains.Count; i++)
         {
-            Debug.Log(PlayerPrefs.GetString("brains"));
+//            Debug.Log(PlayerPrefs.GetString("brains"));
             if ( PlayerPrefs.GetString("brains")[i] == '0')
             {
                 brains[i].GetComponent<SpriteRenderer>().color = Color.gray;
@@ -89,9 +89,9 @@ public class _Manager : MonoBehaviour {
         int id = brain.GetComponent<Brain>().id;
         char[] save = PlayerPrefs.GetString("brains").ToCharArray();
         save[id] = '0';
-        Debug.Log("id getted = " + id);
+//        Debug.Log("id getted = " + id);
         string newSave = new string(save);
-        Debug.Log("save is now = " + newSave);
+//        Debug.Log("save is now = " + newSave);
         PlayerPrefs.SetString("brains", newSave);
 
         PlayerPrefs.SetInt("currentBrains", PlayerPrefs.GetInt("currentBrains") + 1);

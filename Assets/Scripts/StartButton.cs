@@ -15,7 +15,6 @@ public class StartButton : MonoBehaviour
 		if( PlayerPrefs.HasKey("Name" ) )
 			Debug.Log("name");
 		creatureName.text = PlayerPrefs.GetString("Name");
-		Debug.Log(creatureName.text);
 	}
 	
 	// Update is called once per frame

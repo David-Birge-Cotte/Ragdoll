@@ -132,6 +132,7 @@ GameObject:
   - 60: {fileID: 6091270}
   - 114: {fileID: 11467216}
   - 114: {fileID: 11498084}
+  - 81: {fileID: 8161392}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -359,7 +360,7 @@ Transform:
   m_Children:
   - {fileID: 496810}
   m_Father: {fileID: 456234}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &427622
 Transform:
   m_ObjectHideFlags: 1
@@ -411,8 +412,8 @@ Transform:
   - {fileID: 403686}
   - {fileID: 486220}
   - {fileID: 496826}
-  - {fileID: 468964}
   - {fileID: 415854}
+  - {fileID: 468964}
   - {fileID: 434580}
   - {fileID: 428252}
   - {fileID: 404886}
@@ -455,7 +456,7 @@ Transform:
   m_Children:
   - {fileID: 427622}
   m_Father: {fileID: 456234}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &469446
 Transform:
   m_ObjectHideFlags: 1
@@ -723,6 +724,13 @@ PolygonCollider2D:
       - {x: .389999986, y: -1.67999995}
       - {x: .689999998, y: -1.63}
       - {x: .829999983, y: -1.58000004}
+--- !u!81 &8161392
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148446}
+  m_Enabled: 1
 --- !u!82 &8211548
 AudioSource:
   m_ObjectHideFlags: 1
